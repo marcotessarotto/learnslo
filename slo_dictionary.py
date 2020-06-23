@@ -428,15 +428,69 @@ for k, v in enota.items():
 print(len(dict_slo))
 
 
+def find_random_answers(right_answer_pos: int, result_len = 3):
+    result = []
+
+    keys = dict_slo.keys()
+    values = list(dict_slo.values())
+
+    while len(result) < result_len:
+        pos = random.randrange(0, len(dict_slo) - 1)
+        if pos == right_answer_pos:
+            continue
+        result.append(values[pos].italiankso)
+
+    return result
+
+
 random.seed(a=0)
-pos = random.randrange(0, len(dict_slo)-1)
-print(pos)
 
-keys = dict_slo.keys()
 
-print(list(keys)[pos])
+keys = list(dict_slo.keys())
+values = list(dict_slo.values())
 
-for k, v in dict_slo.items():
-    # print(k, v)
 
-    pass
+
+
+
+print("***tests***")
+
+while 1:
+    pos = random.randrange(0, len(dict_slo) - 1)
+    print(pos)
+
+    test_key = keys[pos]
+    test_value = values[pos]
+
+    possible_answers = find_random_answers(pos)
+    possible_answers.append(values[pos].italiankso)
+    random.shuffle(possible_answers)
+
+    print()
+    print(f"cosa vuol dire: '{test_key}'")
+
+    print("possibili risposte:")
+
+    print()
+    counter = 0
+    for i in possible_answers:
+        print(f"{counter} : {i}")
+        counter += 1
+
+    data = input("risposta (-1 to exit):")
+    answer_pos = int(data)
+    # print(answer_pos)
+
+    correct_answer = test_value.italiankso
+    user_answer = possible_answers[answer_pos]
+
+    if correct_answer == user_answer:
+        print("OK")
+    else:
+        print("NOT OK")
+
+    # print(tests)
+    # print(values[pos])
+
+    if answer_pos == -1:
+        break
