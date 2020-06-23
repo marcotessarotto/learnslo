@@ -1,7 +1,4 @@
 
-
-enota_1_dict = {}
-
 # https://docs.python.org/3.8/library/enum.html
 from enum import Enum
 
@@ -45,12 +42,14 @@ class Gender(Enum):
     MALE = 1
     FEMALE = 2
 
+
 # sloveno, traduzione, tipo, note, unità
-test = ("dober dan", WordType.NOP, "", "", 1)
+#test = ("dober dan", WordType.NOP, "", "", 1)
 
 
+enota = {}
 
-enota_1 = (
+enota[1] = (
     ("enota", "unità"),
     ("dober dan", "buongiorno", BookPage(7)),
 
@@ -64,7 +63,6 @@ enota_1 = (
     ("sestavite besede", "compilate le parole", WordType.VERB, Level.DIFFICULT), # ???
     ("vprašajte in odgovorite", "chiedete e rispondete", WordType.VERB, Level.DIFFICULT),
     ("vstavite", "inserite", WordType.VERB, Level.DIFFICULT),
-
     ("besedišče", "vocabolario"),
     ("beseda", "parola"),
     ("besede", "parole"),
@@ -254,7 +252,7 @@ enota_1 = (
     ("ampak", "ma"),
     ("ampak zdaj ne delam", "ma ora non lavoro"),
     ("zdaj", "ora"),
-    ("ime", "nome"),
+    ("ime", "nome"), # IDENTITETA
     ("priimek", "cognome"),
     ("jezik", "linguaggio"),
     ("država", "stato"),
@@ -305,8 +303,8 @@ enota_1 = (
     ("vi govorite", "voi parlate"),
     ("oni, one govorijo", "loro/esse parlano"),
     ("a ti govoriš slovensko?", "tu parli sloveno?"),
-    ("", ""),
-    ("", ""),
+    ("mobitel", "telefono cellulare"),
+    ("starost", "età"),
     ("", ""),
     ("", ""),
     ("", ""),
@@ -358,3 +356,72 @@ enota_1 = (
     ("", ""),
     ("", ""),
 )
+
+
+
+class Item:
+
+    def __str__(self):
+        result = f"slovensko='{self.slovensko}' italiankso='{self.italiankso}'"
+
+        try:
+            result += f" bookpage={self.bookpage}"
+        except:
+            pass
+
+        try:
+            result += f" wordtype={self.wordtype}"
+        except:
+            pass
+
+        try:
+            result += f" level={self.level}"
+        except:
+            pass
+
+        return result
+
+
+
+words_dict = {}
+
+for k, v in enota.items():
+    print(f"enota {k}")
+
+    dict = {}
+
+    for row in v:
+
+        if row[0] == "":
+            continue
+
+        i = Item()
+
+        print(row)
+
+        for count, item in enumerate(row):
+            if count == 0:
+                i.slovensko = item
+                continue
+            elif count == 1:
+                i.italiankso = item
+                continue
+            else:
+                if type(item) is BookPage:
+                    # print("BookPage!")
+                    i.bookpage = item.page
+                elif type(item) is WordType:
+                    # print("WordType!")
+                    i.wordtype = item
+                elif type(item) is Level:
+                    # print("Level!")
+                    i.level = item
+
+                # print(count, item)
+
+        print(i)
+        print("***\n")
+
+
+    words_dict[k] = dict
+    #print(k, v)
