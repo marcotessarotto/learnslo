@@ -103,7 +103,7 @@ enota[1] = (
     ("v redu", "ok"),
     ("zelo dobro", "molto bene", WordType.ADVERB),
     ("zelo", "molto"),
-    ("auto", "automobile"),
+    ("avto", "automobile"),
     ("april", "aprile"),
     ("avgust", "agosto"),
     ("banka", "banca"),
@@ -449,15 +449,16 @@ random.seed(a=0)
 keys = list(dict_slo.keys())
 values = list(dict_slo.values())
 
-
-
-
-
 print("***tests***")
 
+number_of_questions = 0
+correct_answers = 0
+
 while 1:
+    print()
+
     pos = random.randrange(0, len(dict_slo) - 1)
-    print(pos)
+    print(f"item {pos}")
 
     test_key = keys[pos]
     test_value = values[pos]
@@ -466,18 +467,22 @@ while 1:
     possible_answers.append(values[pos].italiankso)
     random.shuffle(possible_answers)
 
-    print()
-    print(f"cosa vuol dire: '{test_key}'")
+    print(f"cosa vuol dire: '{test_key}' ?")
 
-    print("possibili risposte:")
+    # print("scegli tra le risposte:")
 
-    print()
+    # print()
     counter = 0
     for i in possible_answers:
         print(f"{counter} : {i}")
         counter += 1
 
-    data = input("risposta (-1 to exit):")
+    data = input("risposta (-1 per uscire):")
+    if data is None or data == "-1":
+        break
+
+    number_of_questions += 1
+
     answer_pos = int(data)
     # print(answer_pos)
 
@@ -486,6 +491,7 @@ while 1:
 
     if correct_answer == user_answer:
         print("OK")
+        correct_answers += 1
     else:
         print("NOT OK")
 
@@ -494,3 +500,7 @@ while 1:
 
     if answer_pos == -1:
         break
+
+print(f"number_of_questions = {number_of_questions}")
+print(f"correct_answers = {correct_answers}")
+
