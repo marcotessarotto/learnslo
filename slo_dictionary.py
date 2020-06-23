@@ -1,5 +1,6 @@
 
 # https://docs.python.org/3.8/library/enum.html
+import random
 from enum import Enum
 
 
@@ -358,7 +359,6 @@ enota[1] = (
 )
 
 
-
 class Item:
 
     def __str__(self):
@@ -382,13 +382,13 @@ class Item:
         return result
 
 
+# words_dict = {}
 
-words_dict = {}
+dict_slo = {}
+dict_ita = {}
 
 for k, v in enota.items():
     print(f"enota {k}")
-
-    dict = {}
 
     for row in v:
 
@@ -397,7 +397,7 @@ for k, v in enota.items():
 
         i = Item()
 
-        print(row)
+        # print(row)
 
         for count, item in enumerate(row):
             if count == 0:
@@ -419,9 +419,24 @@ for k, v in enota.items():
 
                 # print(count, item)
 
-        print(i)
-        print("***\n")
+        # print(i)
+        # print("***\n")
+
+        dict_slo[i.slovensko] = i
+        dict_ita[i.italiankso] = i
+
+print(len(dict_slo))
 
 
-    words_dict[k] = dict
-    #print(k, v)
+random.seed(a=0)
+pos = random.randrange(0, len(dict_slo)-1)
+print(pos)
+
+keys = dict_slo.keys()
+
+print(list(keys)[pos])
+
+for k, v in dict_slo.items():
+    # print(k, v)
+
+    pass
