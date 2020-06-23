@@ -40,6 +40,11 @@ class Level(Enum):
     DIFFICULT = 3
 
 
+class Gender(Enum):
+    NEUTRAL = 0
+    MALE = 1
+    FEMALE = 2
+
 # sloveno, traduzione, tipo, note, unità
 test = ("dober dan", WordType.NOP, "", "", 1)
 
@@ -50,11 +55,23 @@ enota_1 = (
     ("dober dan", "buongiorno", BookPage(7)),
     ("preberite", "leggete", WordType.VERB, Level.DIFFICULT),
     ("dopolnite", "completate", WordType.VERB, Level.DIFFICULT),
+    ("napišite", "scrivete", WordType.VERB, Level.DIFFICULT),
     ("poslušajte", "ascoltate", WordType.VERB, Level.DIFFICULT),
     ("ponovite", "ripetete", WordType.VERB, Level.DIFFICULT),
+    ("črkujte", "sillabare", WordType.VERB, Level.DIFFICULT),
+    ("sestavite besede", "compilate le parole", WordType.VERB, Level.DIFFICULT), # ???
     ("besedišče", "vocabolario"),
+    ("beseda", "parola"),
+    ("besede", "parole"),
+    ("črko", "lettera"),
+    ("eno črko lahko uporabite večkrat", "puoi usare una lettera più di una volta"),
+    ("eno črko", "una lettera"),
+    ("lahko", "può"),
+    ("večkrat", "parecchie volte"),
+    ("lahko uporabite", "puoi usare"),
     ("identiteta", "identità"),
     ("abeceda", "alfabeto"),
+    ("številka", "numero"),
     ("številke", "numeri"),
     ("države", "stati"),
     ("poklici", "professioni"),
@@ -146,22 +163,24 @@ enota_1 = (
     ("veterinar", "veterinario"),
     ("zdravnik", "medico"),
     ("žirafa", "giraffa"),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
+    ("kaj je ...?", "cosa è ...?"),
+    ("kako se reče ...?", "come si dice ...?"),
+    ("oprostite", "mi scusi"),
+    ("oprostite, ne razumem", "mi scusi, non capisco"),
+    ("ne razumem", "non capisco"),
+    ("ponovite, prosim", "ripeti, per favore"),
+    ("prosim", "per favore"),
+    ("nič", "0"),
+    ("ena", "1"),
+    ("dve", "2"),
+    ("tri", "3"),
+    ("štiri", "4"),
+    ("pet", "5"),
+    ("šest", "6"),
+    ("sedem", "7"),
+    ("osem", "8"),
+    ("devet", "9"),
+    ("deset", "10"),
     ("", ""),
     ("", ""),
     ("", ""),
