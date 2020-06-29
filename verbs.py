@@ -1,6 +1,7 @@
-from utilities import WordType, WordNote, PronNote, BookPage, Level, Item
+import random
 
-
+from utilities import WordType, WordNote, PronNote, BookPage, Level, Item, process_dictionary, find_random_answers, \
+    start_tests
 
 verbs = {}
 
@@ -20,6 +21,110 @@ verbs["piti"] = (
     ("ne pijejo", "essi/esse non bevono", WordType.VERB),
     ("", ""),
 
+)
+
+
+verbs["biti"] = (
+    ("jaz sem", "io sono", WordType.VERB),
+    ("ti si", "tu sei", WordType.VERB),
+    ("on/ona je", "lui/lei è", WordType.VERB),
+    ("mi smo", "noi siamo", WordType.VERB),
+    ("vi ste", "voi siete", WordType.VERB),
+    ("oni/one so", "essi/esse sono", WordType.VERB),
+    ("jaz nisem", "", WordType.VERB),
+    ("ti nisi", "", WordType.VERB),
+    ("on/ona ni", "", WordType.VERB),
+    ("mi nismo", "", WordType.VERB),
+    ("vi niste", "", WordType.VERB),
+    ("oni/one niso", "", WordType.VERB),
+    ("", ""),
+)
+
+verbs["biti examples"] = (
+    ("jaz sem zelo dobro", "io sto molto bene"),
+    ("Anton je star 46 let", "Anton ha 46 anni"),
+    ("Nataša je zdravnica", "Nataša è medico"),
+    ("Oni so stari 28 let", "essi hanno 28 anni"),
+    ("Vi ste iz Argentine", "tu vieni dall'Argentina"),
+    ("Vi niste iz Maribora", "voi non siete di Maribor"),
+    ("Eva ni zelo dobro", "Eva non sta molto bene"),
+    ("Jaz nisem star/a 46 let", "io non ho 46 anni"),
+    ("Ti nisi zdravnica", "tu non sei un medico"),
+    ("Vi niste stari 28 let", "voi non avete 28 anni"),
+    ("Mark ni iz Argentina", "Mark non viene dall'Argentina"),
+    ("Ana, Boštjan in Matej so iz Maribora", "Ana, Boštjan e Matej sono di Maribor"),
+    ("kako ti je ime?", "quale è il tuo nome?"),
+    ("kako se pišeš?", "quale è il tuo cognome? ('come ti cognomi')"),
+    ("koliko si star(a)?", "quanti anni hai?"),
+    ("koliko ste stari?", "(formale) quanti anni ha?"),
+    ("od kod si?", "di dove sei/da dove vieni?"),
+    ("kaj si po poklicu?", "cosa sei di mestiere/che lavoro fai?"),
+    ("katere jezike govoriš/ite?", "quali lingue parli?"),
+    ("a mi daš telefonsko številko, prosim?", "mi dai il numero di telefono, per favore?"),
+    ("a mi daš naslov, prosim?", "mi dai l'indirizzo, per favore?"),
+    ("a mi daš email, prosim?", "mi dai l'email, per favore?"),
+    ("koliko stane pica?", "quanto cosa la pizza?"),
+    ("kako se reče ...?", "come si dice ...?"),
+    ("kaj je ...?", "cosa è ...?"),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+)
+
+verbs["govoriti"] = (
+    ("jaz govorim", "", WordType.VERB),
+    ("ti govoris", "", WordType.VERB),
+    ("on/ona govori", "", WordType.VERB),
+    ("mi govorimo", "", WordType.VERB),
+    ("vi govorite", "", WordType.VERB),
+    ("oni/one govorijo", "", WordType.VERB),
+    ("", "", WordType.VERB),
+    ("", "", WordType.VERB),
+    ("", "", WordType.VERB),
+    ("", "", WordType.VERB),
+    ("", "", WordType.VERB),
+    ("", "", WordType.VERB),
+    ("", "", WordType.VERB),
+    ("Pia govori angleško", "Pia parla inglese"),
+    ("Jaz govorim malo slovensko", "Jo parlo un po' di sloveno"),
+    ("Maja, a ti govoriš špansko?", "Maja, parli spagnolo?"),
+    ("Mi govorimo nemško", "Noi parliamo il tedesco"),
+    ("Sara govori francosko", "Sara parla francese"),
+    ("Oni govorijo arabsko", "Essi parlano arabo"),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
 )
 
 verbs[1] = (
@@ -74,3 +179,67 @@ verbs[1] = (
     ("", ""),
     ("", ""),
 )
+
+
+verbs[2] = (
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+)
+
+
+
+# dict_slo, dict_ita = process_dictionary(verbs)
+
+
+# print(f"len(dict_slo) = {len(dict_slo)}")
+
+start_tests(verbs, int_seed=None)
+

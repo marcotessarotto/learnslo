@@ -1,5 +1,5 @@
 from enum import Enum
-
+import random
 
 class WordType(Enum):
     NOP = 0
@@ -64,12 +64,12 @@ class Item:
         return result
 
 
-def process_dictionary(my_dict):
-    dict_slo = {}
-    dict_ita = {}
+def process_dictionary(my_dict, dict_slo={}, dict_ita={}):
+    # dict_slo = {}
+    # dict_ita = {}
 
     for k, v in my_dict.items():
-        print(f"my_dict {k}")
+        print(f"process_dictionary key={k}")
 
         for row in v:
 
@@ -82,6 +82,7 @@ def process_dictionary(my_dict):
 
             for count, item in enumerate(row):
                 if count == 0:
+                    i.category = k
                     i.slovensko = item
                     i.slovensko_num_words = len(item.split())
                     i.multiple_words = i.slovensko_num_words > 1
@@ -112,11 +113,10 @@ def process_dictionary(my_dict):
 
 
 def find_random_answers(dict_slo, slo_dict_values, right_answer_pos: int, result_len=3):
-    import random
 
     result = []
 
-    slo_dict_keys = dict_slo.keys()
+    #slo_dict_keys = dict_slo.keys()
 
     if slo_dict_values is None:
         slo_dict_values = list(dict_slo.values())
@@ -135,3 +135,79 @@ def find_random_answers(dict_slo, slo_dict_values, right_answer_pos: int, result
 
     return result
 
+
+def start_tests(my_dictionary, int_seed=0):
+    # TODO
+    # creare lista delle domande già fatte
+    # creare lista delle domande sbagliate
+
+    dict_slo, dict_ita = process_dictionary(my_dictionary)
+
+    print(f"len(dict_slo) = {len(dict_slo)}")
+
+    if int_seed is not None:
+        random.seed(a=0)
+
+    slo_dict_keys = list(dict_slo.keys())
+    slo_dict_values = list(dict_slo.values())
+
+    print("***tests***")
+
+    number_of_questions = 0
+    correct_answers = 0
+
+    while 1:
+        print()
+
+        pos = random.randrange(0, len(dict_slo) - 1)
+        print(f"item {pos}")
+
+        test_key = slo_dict_keys[pos]
+        test_value = slo_dict_values[pos]
+
+        possible_answers = find_random_answers(dict_slo, slo_dict_values, pos)
+        possible_answers.append(slo_dict_values[pos].italiankso)
+
+        random.shuffle(possible_answers)
+
+        print(f"cosa vuol dire: '{test_key}' ?")
+
+        # print("scegli tra le risposte:")
+
+        # print()
+        counter = 0
+        for i in possible_answers:
+            print(f"{counter} : {i}")
+            counter += 1
+
+        data = input("risposta (-1 per uscire):")
+        if data is None or data == "-1":
+            break
+
+        number_of_questions += 1
+
+        answer_pos = int(data)
+        # print(answer_pos)
+
+        correct_answer = test_value.italiankso
+
+        try:
+            user_answer = possible_answers[answer_pos]
+        except IndexError:
+            print("?!?!?")
+            user_answer = None
+
+        if correct_answer == user_answer:
+            print("OK")
+            correct_answers += 1
+        else:
+            print("NOT OK")
+
+        # print(tests)
+        # print(values[pos])
+
+        if answer_pos == -1:
+            break
+
+    print(f"number_of_questions = {number_of_questions}")
+    print(f"correct_answers = {correct_answers}")
