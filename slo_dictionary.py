@@ -1,5 +1,5 @@
 from utilities import WordType, WordNote, PronNote, BookPage, Level, Item, process_dictionary, find_random_answers, \
-    start_tests
+    start_tests, Gender
 
 # sloveno, traduzione, tipo, note, unità
 #test = ("dober dan", WordType.NOP, "", "", 1)
@@ -260,7 +260,7 @@ enota[1] = (
     ("vi govorite", "voi parlate"),
     ("oni, one govorijo", "loro/esse parlano"),
     ("a ti govoriš slovensko?", "tu parli sloveno?"),
-    ("mobitel", "telefono cellulare"),
+    ("mobitel (m)", "telefono cellulare", Gender.MALE),
     ("starost", "età"),
     ("", ""),
     ("", ""),

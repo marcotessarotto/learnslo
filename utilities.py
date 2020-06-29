@@ -9,6 +9,7 @@ class WordType(Enum):
     VERB = 1
     SENTENCE = 2
     ADVERB = 3
+    PRONOUN = 4
 
 
 class WordNote:
@@ -64,6 +65,11 @@ class Item:
         except:
             pass
 
+        try:
+            result += f" gender={self.gender}"
+        except:
+            pass
+
         return result
 
 
@@ -103,6 +109,8 @@ def process_dictionary(my_dict, dict_slo={}, dict_ita={}):
                     elif type(item) is Level:
                         # print("Level!")
                         i.level = item
+                    elif type(item) is Gender:
+                        i.gender = item
 
                     # print(count, item)
 
@@ -147,9 +155,8 @@ def find_random_answers(dict_slo, slo_dict_values, right_answer_pos: int, result
 
 
 def start_tests(my_dictionary, int_seed=0):
-    # TODO
     # creare lista delle domande già fatte: ok
-    # creare lista delle domande sbagliate
+    # creare lista delle domande sbagliate: ok
 
     dict_slo, dict_ita = process_dictionary(my_dictionary)
 
@@ -230,6 +237,7 @@ def start_tests(my_dictionary, int_seed=0):
         if correct_answer == user_answer:
             print("OK")
             correct_answers += 1
+            print(test_value)
         else:
             print("NOT OK")
             print(f"*** risposta corretta: {correct_answer}")
