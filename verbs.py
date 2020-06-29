@@ -14,7 +14,7 @@ verbs["piti"] = (
     ("pijejo", "essi bevono", WordType.VERB),
     ("ne pijem", "io non bevo", WordType.VERB),
     ("ne piješ", "tu non bevi", WordType.VERB),
-    ("ne pije", "eglis/essa non beve", WordType.VERB),
+    ("ne pije", "egli/lei non beve", WordType.VERB),
     ("ne pijemo", "noi non beviamo", WordType.VERB),
     ("ne pijete", "voi non bevete", WordType.VERB),
     ("ne pijejo", "essi/esse non bevono", WordType.VERB),

@@ -406,3 +406,6 @@ while 1:
 print(f"number_of_questions = {number_of_questions}")
 print(f"correct_answers = {correct_answers}")
 
+# TODO
+# creare lista delle domande già fatte
+# creare lista delle domande sbagliate
