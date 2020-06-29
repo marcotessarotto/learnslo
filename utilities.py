@@ -1,5 +1,8 @@
+# https://docs.python.org/3.8/library/enum.html
 from enum import Enum
+
 import random
+
 
 class WordType(Enum):
     NOP = 0

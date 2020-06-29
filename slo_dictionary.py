@@ -1,7 +1,3 @@
-
-# https://docs.python.org/3.8/library/enum.html
-import random
-
 from utilities import WordType, WordNote, PronNote, BookPage, Level, Item, process_dictionary, find_random_answers, \
     start_tests
 
@@ -320,81 +316,4 @@ enota[1] = (
 
 
 start_tests(enota, int_seed=None)
-
-
-
-# dict_slo, dict_ita = process_dictionary(enota)
-#
-#
-# print(f"len(dict_slo) = {len(dict_slo)}")
-#
-#
-#
-#
-# random.seed(a=0)
-#
-#
-# slo_dict_keys = list(dict_slo.keys())
-# slo_dict_values = list(dict_slo.values())
-#
-# print("***tests***")
-#
-# number_of_questions = 0
-# correct_answers = 0
-#
-# while 1:
-#     print()
-#
-#     pos = random.randrange(0, len(dict_slo) - 1)
-#     print(f"item {pos}")
-#
-#     test_key = slo_dict_keys[pos]
-#     test_value = slo_dict_values[pos]
-#
-#     possible_answers = find_random_answers(dict_slo, slo_dict_values, pos)
-#     possible_answers.append(slo_dict_values[pos].italiankso)
-#
-#     random.shuffle(possible_answers)
-#
-#     print(f"cosa vuol dire: '{test_key}' ?")
-#
-#     # print("scegli tra le risposte:")
-#
-#     # print()
-#     counter = 0
-#     for i in possible_answers:
-#         print(f"{counter} : {i}")
-#         counter += 1
-#
-#     data = input("risposta (-1 per uscire):")
-#     if data is None or data == "-1":
-#         break
-#
-#     number_of_questions += 1
-#
-#     answer_pos = int(data)
-#     # print(answer_pos)
-#
-#     correct_answer = test_value.italiankso
-#
-#     try:
-#         user_answer = possible_answers[answer_pos]
-#     except IndexError:
-#         print("?!?!?")
-#         user_answer = None
-#
-#     if correct_answer == user_answer:
-#         print("OK")
-#         correct_answers += 1
-#     else:
-#         print("NOT OK")
-#
-#     # print(tests)
-#     # print(values[pos])
-#
-#     if answer_pos == -1:
-#         break
-#
-# print(f"number_of_questions = {number_of_questions}")
-# print(f"correct_answers = {correct_answers}")
 

@@ -1,5 +1,3 @@
-import random
-
 from utilities import WordType, WordNote, PronNote, BookPage, Level, Item, process_dictionary, find_random_answers, \
     start_tests
 
@@ -31,12 +29,12 @@ verbs["biti"] = (
     ("mi smo", "noi siamo", WordType.VERB),
     ("vi ste", "voi siete", WordType.VERB),
     ("oni/one so", "essi/esse sono", WordType.VERB),
-    ("jaz nisem", "", WordType.VERB),
-    ("ti nisi", "", WordType.VERB),
-    ("on/ona ni", "", WordType.VERB),
-    ("mi nismo", "", WordType.VERB),
-    ("vi niste", "", WordType.VERB),
-    ("oni/one niso", "", WordType.VERB),
+    ("jaz nisem", "noi non siamo", WordType.VERB),
+    ("ti nisi", "tu non sei", WordType.VERB),
+    ("on/ona ni", "lui/lei non è", WordType.VERB),
+    ("mi nismo", "noi non siamo", WordType.VERB),
+    ("vi niste", "voi non siete", WordType.VERB),
+    ("oni/one niso", "essi/esse non sono", WordType.VERB),
     ("", ""),
 )
 
@@ -45,7 +43,7 @@ verbs["biti examples"] = (
     ("Anton je star 46 let", "Anton ha 46 anni"),
     ("Nataša je zdravnica", "Nataša è medico"),
     ("Oni so stari 28 let", "essi hanno 28 anni"),
-    ("Vi ste iz Argentine", "tu vieni dall'Argentina"),
+    ("Vi ste iz Argentine", "voi venite dall'Argentina"),
     ("Vi niste iz Maribora", "voi non siete di Maribor"),
     ("Eva ni zelo dobro", "Eva non sta molto bene"),
     ("Jaz nisem star/a 46 let", "io non ho 46 anni"),
@@ -81,12 +79,12 @@ verbs["biti examples"] = (
 )
 
 verbs["govoriti"] = (
-    ("jaz govorim", "", WordType.VERB),
-    ("ti govoris", "", WordType.VERB),
-    ("on/ona govori", "", WordType.VERB),
-    ("mi govorimo", "", WordType.VERB),
-    ("vi govorite", "", WordType.VERB),
-    ("oni/one govorijo", "", WordType.VERB),
+    ("jaz govorim", "io parlo", WordType.VERB),
+    ("ti govoris", "tu parli", WordType.VERB),
+    ("on/ona govori", "lui/lei parla", WordType.VERB),
+    ("mi govorimo", "noi parliamo", WordType.VERB),
+    ("vi govorite", "voi parlate", WordType.VERB),
+    ("oni/one govorijo", "essi7esse parlano", WordType.VERB),
     ("", "", WordType.VERB),
     ("", "", WordType.VERB),
     ("", "", WordType.VERB),
