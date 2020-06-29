@@ -83,6 +83,8 @@ def process_dictionary(my_dict):
             for count, item in enumerate(row):
                 if count == 0:
                     i.slovensko = item
+                    i.slovensko_num_words = len(item.split())
+                    i.multiple_words = i.slovensko_num_words > 1
                     continue
                 elif count == 1:
                     i.italiankso = item
@@ -107,4 +109,29 @@ def process_dictionary(my_dict):
             dict_ita[i.italiankso] = i
 
     return dict_slo, dict_ita
+
+
+def find_random_answers(dict_slo, slo_dict_values, right_answer_pos: int, result_len=3):
+    import random
+
+    result = []
+
+    slo_dict_keys = dict_slo.keys()
+
+    if slo_dict_values is None:
+        slo_dict_values = list(dict_slo.values())
+
+    right_answer = slo_dict_values[right_answer_pos]
+
+    while len(result) < result_len:
+
+        pos = random.randrange(0, len(dict_slo) - 1)
+        if pos == right_answer_pos:
+            continue
+        if slo_dict_values[pos].multiple_words != right_answer.multiple_words:
+            continue
+        
+        result.append(slo_dict_values[pos].italiankso)
+
+    return result
 
