@@ -1,48 +1,8 @@
 
 # https://docs.python.org/3.8/library/enum.html
 import random
-from enum import Enum
 
-
-class WordType(Enum):
-    NOP = 0
-    VERB = 1
-    SENTENCE = 2
-    ADVERB = 3
-
-
-class WordNote:
-    def __init__(self, text):
-        self.text = text
-
-
-class PronNote: # pronounciation note
-    def __init__(self, text):
-        self.text = text
-
-
-class ImageUrl:
-    def __init__(self, url):
-        self.url = url
-
-
-class BookPage:
-    def __init__(self, page):
-        self.page = page
-
-
-class Level(Enum):
-    NOP = 0
-    EASY = 1
-    MEDIUM = 2
-    DIFFICULT = 3
-
-
-class Gender(Enum):
-    NEUTRAL = 0
-    MALE = 1
-    FEMALE = 2
-
+from utilities import WordType, WordNote, PronNote, BookPage, Level, Item
 
 # sloveno, traduzione, tipo, note, unità
 #test = ("dober dan", WordType.NOP, "", "", 1)
@@ -61,7 +21,7 @@ enota[1] = (
     ("poslušajte", "ascoltate", WordType.VERB, Level.DIFFICULT),
     ("ponovite", "ripetete", WordType.VERB, Level.DIFFICULT),
     ("preberite", "leggete", WordType.VERB, Level.DIFFICULT),
-    ("sestavite besede", "compilate le parole", WordType.VERB, Level.DIFFICULT), # ???
+    ("sestavite besede", "compilate le parole", WordType.VERB, Level.DIFFICULT),  # ???
     ("vprašajte in odgovorite", "chiedete e rispondete", WordType.VERB, Level.DIFFICULT),
     ("vstavite", "inserite", WordType.VERB, Level.DIFFICULT),
     ("besedišče", "vocabolario"),
@@ -253,7 +213,7 @@ enota[1] = (
     ("ampak", "ma"),
     ("ampak zdaj ne delam", "ma ora non lavoro"),
     ("zdaj", "ora"),
-    ("ime", "nome"), # IDENTITETA
+    ("ime", "nome"),  # IDENTITETA
     ("priimek", "cognome"),
     ("jezik", "linguaggio"),
     ("država", "stato"),
@@ -271,7 +231,7 @@ enota[1] = (
     ("katere jezike govorite", "(formale) quali lingue parlate?"),
     ("glagol", "verbo"),
     ("biti", "verbo essere"),
-    ("jaz sem", "io sono"), # GLAGOL BITI
+    ("jaz sem", "io sono"),  # GLAGOL BITI
     ("ti si", "tu sei"),
     ("on, ona je", "egli/lei è"),
     ("mi smo", "noi siamo"),
@@ -289,7 +249,7 @@ enota[1] = (
     ("Mi smo študenti", "noi siamo studenti universitari"),
     ("Ana: Gospa Turner, a ste vi iz Avstralije?", "Signora Turner, lei viene dall'Australia?"),
     ("Tom: Peter, a si ti ekonomist?", "Peter, sei laureato in economia?"),
-    ("jaz nisem", "io non sono"), # BITI (negativno)
+    ("jaz nisem", "io non sono"),  # BITI (negativno)
     ("negativno", "negativo"),
     ("ti nisi", "tu non sei"),
     ("on, ona ni", "lui, lei non è"),
@@ -297,7 +257,7 @@ enota[1] = (
     ("vi niste", "voi non siete"),
     ("oni, one niso", "loro/esse non sono"),
     ("psiholog", "psicologo"),
-    ("jaz govorim", "io parlo/sto parlando"), # GLAGOL: GOVORITI
+    ("jaz govorim", "io parlo/sto parlando"),  # GLAGOL: GOVORITI
     ("ti govoriš", "tu parli"),
     ("on, ona govori", "lui/lei parla"),
     ("mi govorimo", "noi parliamo"),
@@ -357,30 +317,6 @@ enota[1] = (
     ("", ""),
     ("", ""),
 )
-
-
-class Item:
-
-    def __str__(self):
-        result = f"slovensko='{self.slovensko}' italiankso='{self.italiankso}'"
-
-        try:
-            result += f" bookpage={self.bookpage}"
-        except:
-            pass
-
-        try:
-            result += f" wordtype={self.wordtype}"
-        except:
-            pass
-
-        try:
-            result += f" level={self.level}"
-        except:
-            pass
-
-        return result
-
 
 # words_dict = {}
 
