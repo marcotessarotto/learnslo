@@ -126,6 +126,8 @@ def find_random_answers(dict_slo, slo_dict_values, right_answer_pos: int, result
 
     right_answer = slo_dict_values[right_answer_pos]
 
+    used_positions = []
+
     while len(result) < result_len:
 
         pos = random.randrange(0, len(dict_slo) - 1)
@@ -133,8 +135,13 @@ def find_random_answers(dict_slo, slo_dict_values, right_answer_pos: int, result
             continue
         if slo_dict_values[pos].multiple_words != right_answer.multiple_words:
             continue
-        
+
+        if pos in used_positions:
+            continue
+
         result.append(slo_dict_values[pos].italiankso)
+
+        used_positions.append(pos)
 
     return result
 
@@ -180,16 +187,21 @@ def start_tests(my_dictionary, int_seed=0):
         # print()
         counter = 0
         for i in possible_answers:
-            print(f"{counter} : {i}")
+            print(f"{chr(ord('a') + counter)} : {i.lower()}")
             counter += 1
 
-        data = input("risposta (-1 per uscire):")
-        if data is None or data == "-1":
+        data = input("risposta (q per uscire):")
+        if data is None or data == "q":
             break
 
         number_of_questions += 1
 
-        answer_pos = int(data)
+        try:
+            answer_pos = ord(data) - ord('a')
+        except TypeError:
+            print("?!?!?2")
+
+            answer_pos = 100
         # print(answer_pos)
 
         correct_answer = test_value.italiankso
@@ -197,7 +209,7 @@ def start_tests(my_dictionary, int_seed=0):
         try:
             user_answer = possible_answers[answer_pos]
         except IndexError:
-            print("?!?!?")
+            print("?!?!?1")
             user_answer = None
 
         if correct_answer == user_answer:
