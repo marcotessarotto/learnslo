@@ -148,12 +148,14 @@ def find_random_answers(dict_slo, slo_dict_values, right_answer_pos: int, result
 
 def start_tests(my_dictionary, int_seed=0):
     # TODO
-    # creare lista delle domande già fatte
+    # creare lista delle domande già fatte: ok
     # creare lista delle domande sbagliate
 
     dict_slo, dict_ita = process_dictionary(my_dictionary)
 
-    print(f"len(dict_slo) = {len(dict_slo)}")
+    max_questions = len(dict_slo)
+
+    print(f"len(dict_slo) = {max_questions}")
 
     if int_seed is not None:
         random.seed(a=0)
@@ -166,17 +168,30 @@ def start_tests(my_dictionary, int_seed=0):
     number_of_questions = 0
     correct_answers = 0
 
+    asked_questions = []
+    wrong_answers = []
+
     while 1:
         print()
 
-        pos = random.randrange(0, len(dict_slo) - 1)
-        print(f"item {pos}")
+        if len(asked_questions) == max_questions:
+            print("***finito!***")
+            break
 
-        test_key = slo_dict_keys[pos]
-        test_value = slo_dict_values[pos]
+        current_pos = random.randrange(0, len(dict_slo) - 1)
 
-        possible_answers = find_random_answers(dict_slo, slo_dict_values, pos)
-        possible_answers.append(slo_dict_values[pos].italiankso)
+        if current_pos in asked_questions:
+            continue
+        else:
+            asked_questions.append(current_pos)
+
+        print(f"item {current_pos} - {len(asked_questions)}/{max_questions}")
+
+        test_key = slo_dict_keys[current_pos]
+        test_value = slo_dict_values[current_pos]
+
+        possible_answers = find_random_answers(dict_slo, slo_dict_values, current_pos)
+        possible_answers.append(slo_dict_values[current_pos].italiankso)
 
         random.shuffle(possible_answers)
 
@@ -217,6 +232,8 @@ def start_tests(my_dictionary, int_seed=0):
             correct_answers += 1
         else:
             print("NOT OK")
+            print(f"*** risposta corretta: {correct_answer}")
+            wrong_answers.append(current_pos)
 
         # print(tests)
         # print(values[pos])
@@ -226,3 +243,10 @@ def start_tests(my_dictionary, int_seed=0):
 
     print(f"number_of_questions = {number_of_questions}")
     print(f"correct_answers = {correct_answers}")
+
+    if len(wrong_answers) > 0:
+        print()
+        print("***errori***")
+        for pos in wrong_answers:
+            question = slo_dict_values[pos]
+            print(question)
