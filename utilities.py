@@ -62,3 +62,49 @@ class Item:
             pass
 
         return result
+
+
+def process_dictionary(my_dict):
+    dict_slo = {}
+    dict_ita = {}
+
+    for k, v in my_dict.items():
+        print(f"my_dict {k}")
+
+        for row in v:
+
+            if row[0] == "":
+                continue
+
+            i = Item()
+
+            # print(row)
+
+            for count, item in enumerate(row):
+                if count == 0:
+                    i.slovensko = item
+                    continue
+                elif count == 1:
+                    i.italiankso = item
+                    continue
+                else:
+                    if type(item) is BookPage:
+                        # print("BookPage!")
+                        i.bookpage = item.page
+                    elif type(item) is WordType:
+                        # print("WordType!")
+                        i.wordtype = item
+                    elif type(item) is Level:
+                        # print("Level!")
+                        i.level = item
+
+                    # print(count, item)
+
+            # print(i)
+            # print("***\n")
+
+            dict_slo[i.slovensko] = i
+            dict_ita[i.italiankso] = i
+
+    return dict_slo, dict_ita
+
