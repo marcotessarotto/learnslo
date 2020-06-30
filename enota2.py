@@ -78,7 +78,7 @@ enota[2] = (
     ("Od kod je družina Martinez?", "da dove viene la famiglia Martinez?"),
     ("Koliko je star oče?", "quanti anni ha il padre?"),
     #("Koliko je star oče?", "da dove viene il padre?"),
-    ("Ali mama zdaj dela?", "la mamma lavora adesso?"),
+    ("Ali mama zdaj dela?", "ma la mamma lavora adesso?"),
     ("Kaj je oče po poklicu?", "cosa fa di mestiere il padre?"),
     ("Kaj študira hčerka?", "cosa sta studiando la figlia?"),
     ("moj brat", "mio fratello"),

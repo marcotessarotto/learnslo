@@ -123,7 +123,7 @@ def process_dictionary(my_dict, dict_slo={}, dict_ita={}):
     return dict_slo, dict_ita
 
 
-def find_random_answers(dict_slo, slo_dict_values, right_answer_pos: int, result_len=3):
+def find_random_answers(dict_slo, slo_dict_values, right_answer_pos: int, result_len=5):
 
     result = []
 
