@@ -179,19 +179,19 @@ def start_tests(my_dictionary, int_seed=0):
     wrong_answers = []
 
     while 1:
-        print()
 
         if len(asked_questions) == max_questions:
             print("***finito!***")
             break
 
-        current_pos = random.randrange(0, len(dict_slo) - 1)
+        current_pos = random.randrange(0, len(dict_slo) )
 
         if current_pos in asked_questions:
             continue
         else:
             asked_questions.append(current_pos)
 
+        print()
         print(f"item {current_pos} - {len(asked_questions)}/{max_questions}")
 
         test_key = slo_dict_keys[current_pos]
