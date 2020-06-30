@@ -48,7 +48,7 @@ class Gender(Enum):
 class Item:
 
     def __str__(self):
-        result = f"slovensko='{self.slovensko}' italiankso='{self.italiankso}'"
+        result = f"slovensko='{self.slovensko}' italiansko='{self.italiansko}'"
 
         try:
             result += f" bookpage={self.bookpage}"
@@ -97,7 +97,7 @@ def process_dictionary(my_dict, dict_slo={}, dict_ita={}):
                     i.multiple_words = i.slovensko_num_words > 1
                     continue
                 elif count == 1:
-                    i.italiankso = item
+                    i.italiansko = item
                     continue
                 else:
                     if type(item) is BookPage:
@@ -118,7 +118,7 @@ def process_dictionary(my_dict, dict_slo={}, dict_ita={}):
             # print("***\n")
 
             dict_slo[i.slovensko] = i
-            dict_ita[i.italiankso] = i
+            dict_ita[i.italiansko] = i
 
     return dict_slo, dict_ita
 
@@ -147,7 +147,7 @@ def find_random_answers(dict_slo, slo_dict_values, right_answer_pos: int, result
         if pos in used_positions:
             continue
 
-        result.append(slo_dict_values[pos].italiankso)
+        result.append(slo_dict_values[pos].italiansko)
 
         used_positions.append(pos)
 
@@ -198,7 +198,7 @@ def start_tests(my_dictionary, int_seed=0):
         test_value = slo_dict_values[current_pos]
 
         possible_answers = find_random_answers(dict_slo, slo_dict_values, current_pos)
-        possible_answers.append(slo_dict_values[current_pos].italiankso)
+        possible_answers.append(slo_dict_values[current_pos].italiansko)
 
         random.shuffle(possible_answers)
 
@@ -226,7 +226,7 @@ def start_tests(my_dictionary, int_seed=0):
             answer_pos = 100
         # print(answer_pos)
 
-        correct_answer = test_value.italiankso
+        correct_answer = test_value.italiansko
 
         try:
             user_answer = possible_answers[answer_pos]
