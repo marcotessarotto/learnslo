@@ -178,18 +178,28 @@ def start_tests(my_dictionary, int_seed=0):
     asked_questions = []
     wrong_answers = []
 
+    r = range(len(dict_slo))
+    questions_to_ask = list(r)
+
     while 1:
 
-        if len(asked_questions) == max_questions:
+        # if len(asked_questions) == max_questions:
+        if len(questions_to_ask) == 0:
             print("***finito!***")
             break
 
-        current_pos = random.randrange(0, len(dict_slo) )
+        rnd_value = random.randrange(0, len(questions_to_ask))
 
-        if current_pos in asked_questions:
-            continue
-        else:
-            asked_questions.append(current_pos)
+        current_pos = questions_to_ask[rnd_value]
+        del questions_to_ask[rnd_value]
+
+        # current_pos = random.randrange(0, len(dict_slo) )
+        #
+        # if current_pos in asked_questions:
+        #     continue
+        # else:
+        #     asked_questions.append(current_pos)
+        asked_questions.append(current_pos)
 
         print()
         print(f"item {current_pos} - {len(asked_questions)}/{max_questions}")
