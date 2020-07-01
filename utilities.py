@@ -205,7 +205,7 @@ def start_tests(my_dictionary, int_seed=0):
 
         random.shuffle(possible_answers)
 
-        print(f"cosa vuol dire: '{test_key}' ?")
+        print(f"cosa vuol dire: '{test_key.lower()}' ?")
 
         # print("scegli tra le risposte:")
 

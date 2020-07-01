@@ -14,7 +14,7 @@ extra[1] = (
     ("Kako greš v službo? ", "Come vai al lavoro?"),
     ("Kako prideš?", "Come vieni?"),
     ("Delam kot natakar", "Lavoro come cameriere"),
-    ("Velik je kot oče", "È grande  come il padre"),
+    ("Velik je kot oče", "È grande come il padre"),
     ("Danes je vreme lepo kot včeraj", "Oggi il tempo è bello come ieri"),
     ("Kakšen je tvoj prijatelj?", "Com’è il tuo amico?"),
     ("Kakšna je kava?", "Com’è il caffè?"),
@@ -26,7 +26,7 @@ extra[1] = (
     ("DOBRO SEM!", "Sto bene"),
     ("DOBRO GOVORIM ITALIJANSKO", "Parlo bene l’italiano"),
     ("DOBRO POZNAM MARKA", "Conosco bene Marko"),
-    ("KAKO SI?", "come stai?"),
+    ("kako si?", "come stai?"),
     ("KAKO GOVORIŠ ITALIJANSKO?", "come parli italiano?"),
     ("LEP POZDRAV", "saluti"),
     ("zdravo", "ciao"),
@@ -40,10 +40,10 @@ extra[1] = (
     ("sem iz Ljubljane", "vengo da Lubiana", Gender.FEMALE),
     ("sem iz Gradišča", "vengo da Gradisca", Gender.NEUTRAL),
     ("sem iz Celja", "vengo da Celje", Gender.NEUTRAL),
-    ("", ""), # č š ž
-    ("", ""),
-    ("", ""),
-    ("", ""),
+    ("Milje", "Muggia", Gender.FEMALE), # č š ž
+    ("Celje", "Celje", Gender.NEUTRAL),
+    ("včeraj", "ieri"),
+    ("Danes", "oggi"),
     ("", ""),
     ("", ""),
     ("", ""),
@@ -109,5 +109,5 @@ extra[1] = (
 )
 
 
-start_tests(enota, int_seed=None)
+start_tests(extra, int_seed=None)
 
