@@ -17,23 +17,10 @@ verbs["pronomi"] = (
     ("", ""),
 )
 
-verbs["piti"] = (
-    ("pijem", "io bevo", WordType.VERB),
-    ("piješ", "tu bevi", WordType.VERB),
-    ("pije", "egli/lei beve", WordType.VERB),
-    ("pijemo", "noi beviamo", WordType.VERB),
-    ("pijete", "voi bevete", WordType.VERB),
-    ("pijejo", "essi bevono", WordType.VERB),
-    ("ne pijem", "io non bevo", WordType.VERB),
-    ("ne piješ", "tu non bevi", WordType.VERB),
-    ("ne pije", "egli/lei non beve", WordType.VERB),
-    ("ne pijemo", "noi non beviamo", WordType.VERB),
-    ("ne pijete", "voi non bevete", WordType.VERB),
-    ("ne pijejo", "essi/esse non bevono", WordType.VERB),
-    ("", ""),
+verbs["extra"] = (
+    ("sedanjik", "presente"),
 
 )
-
 
 verbs["biti"] = (
     ("jaz sem", "io sono", WordType.VERB), # pag. 69
@@ -112,9 +99,30 @@ verbs["brati"] = ( # leggere
     ("jaz berem", "io leggo", WordType.VERB),
     ("ti bereš", "tu leggi"),
     ("on/ona bere", "lui/lei legge"),
+    ("mi/me beremo", "noi leggiamo"),
+    ("vi/ve berete", "voi leggete"),
+    ("oni/one bere", "essi/esse leggono"),
     ("", ""),
     ("", ""),
     ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("ti bereš knjigo", "tu leggi un libro"),
+    ("on bere knjigo", "lui legge un libro"),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+)
+
+
+verbs["delati"] = (
+    ("jaz delam", "io lavoro/faccio"),
+    ("ti delaš", "tu lavori"),
+    ("on/ona dela", "lui/lei lavora"),
+    ("mi/me delamo", "noi lavoriamo"),
+    ("vi delate", "voi lavorate"),
+    ("oni/one delajo", "essi/esse lavorano"),
     ("", ""),
     ("", ""),
     ("", ""),
@@ -128,13 +136,14 @@ verbs["brati"] = ( # leggere
     ("", ""),
 )
 
-verbs[1] = (
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
+
+verbs["imeti"] = (
+    ("jaz imam", "io ho"),
+    ("ti imaš", "tu hai"),
+    ("on/ona ima", "lui/lei ha"),
+    ("mi/me imamo", "noi abbiamo"),
+    ("vi imate", "voi avete"),
+    ("oni/one imajo", "essi/esse hanno"),
     ("", ""),
     ("", ""),
     ("", ""),
@@ -147,6 +156,26 @@ verbs[1] = (
     ("", ""),
     ("", ""),
 )
+
+
+verbs["piti"] = (
+    ("pijem", "io bevo", WordType.VERB),
+    ("piješ", "tu bevi", WordType.VERB),
+    ("pije", "egli/lei beve", WordType.VERB),
+    ("pijemo", "noi beviamo", WordType.VERB),
+    ("pijete", "voi bevete", WordType.VERB),
+    ("pijejo", "essi bevono", WordType.VERB),
+    ("ne pijem", "io non bevo", WordType.VERB),
+    ("ne piješ", "tu non bevi", WordType.VERB),
+    ("ne pije", "egli/lei non beve", WordType.VERB),
+    ("ne pijemo", "noi non beviamo", WordType.VERB),
+    ("ne pijete", "voi non bevete", WordType.VERB),
+    ("ne pijejo", "essi/esse non bevono", WordType.VERB),
+    ("", ""),
+
+)
+
+
 
 verbs[1] = (
     ("", ""),
