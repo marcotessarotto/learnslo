@@ -215,7 +215,7 @@ def start_tests(my_dictionary, int_seed=0):
             print(f"{chr(ord('a') + counter)} : {i.lower()}")
             counter += 1
 
-        data = input("risposta (q per uscire):")
+        data = input("risposta (q per uscire): ")
         if data is None or data == "q":
             break
 
