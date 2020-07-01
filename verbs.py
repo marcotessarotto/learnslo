@@ -3,6 +3,19 @@ from utilities import WordType, WordNote, PronNote, BookPage, Level, Item, proce
 
 verbs = {}
 
+verbs["pronomi"] = (
+    ("jaz", "io"),
+    ("ti", "tu"),
+    ("on", "lui"),
+    ("ona", "lei"),
+    ("mi", "noi"),
+    ("me", "noi (f)"),
+    ("vi", "voi"),
+    ("ve", "void (f)"),
+    ("oni", "essi"),
+    ("one", "esse"),
+    ("", ""),
+)
 
 verbs["piti"] = (
     ("pijem", "io bevo", WordType.VERB),
@@ -23,19 +36,32 @@ verbs["piti"] = (
 
 
 verbs["biti"] = (
-    ("jaz sem", "io sono", WordType.VERB),
+    ("jaz sem", "io sono", WordType.VERB), # pag. 69
     ("ti si", "tu sei", WordType.VERB),
     ("on/ona je", "lui/lei è", WordType.VERB),
-    ("mi smo", "noi siamo", WordType.VERB),
-    ("vi ste", "voi siete", WordType.VERB),
+    ("mi/me smo", "noi siamo", WordType.VERB),
+    ("vi/ve ste", "voi siete", WordType.VERB),
     ("oni/one so", "essi/esse sono", WordType.VERB),
-    ("jaz nisem", "noi non siamo", WordType.VERB),
+    ("jaz nisem", "io non sono", WordType.VERB),
     ("ti nisi", "tu non sei", WordType.VERB),
     ("on/ona ni", "lui/lei non è", WordType.VERB),
-    ("mi nismo", "noi non siamo", WordType.VERB),
-    ("vi niste", "voi non siete", WordType.VERB),
+    ("mi/me nismo", "noi non siamo", WordType.VERB),
+    ("vi/ve niste", "voi non siete", WordType.VERB),
     ("oni/one niso", "essi/esse non sono", WordType.VERB),
     ("", ""),
+    ("sem", "sono"),
+    ("si", "sei"),
+    ("je", "è"),
+    ("smo", "siamo"),
+    ("ste", "siete"),
+    ("so", "essi sono"),
+    ("", ""),
+    ("nisem", "non sono"),
+    ("nisi", "non sei"),
+    ("ni", "non è"),
+    ("nismo", "non siamo"),
+    ("niste", "non siete"),
+    ("niso", "non sono"),
 )
 
 verbs["biti examples"] = (
@@ -59,7 +85,8 @@ verbs["biti examples"] = (
     ("koliko ste stari?", "(formale) quanti anni ha?"),
     ("od kod si?", "di dove sei/da dove vieni?"),
     ("kaj si po poklicu?", "cosa sei di mestiere/che lavoro fai?"),
-    ("katere jezike govoriš/ite?", "quali lingue parli?"),
+    ("katere jezike govoriš?", "quali lingue parli?"),
+    ("katere jezike govorite?", "quali lingue parlate?"),
     ("a mi daš telefonsko številko, prosim?", "mi dai il numero di telefono, per favore?"),
     ("a mi daš naslov, prosim?", "mi dai l'indirizzo, per favore?"),
     ("a mi daš email, prosim?", "mi dai l'email, per favore?"),
@@ -80,6 +107,88 @@ verbs["biti examples"] = (
     ("", ""),
 )
 
+
+verbs["brati"] = ( # leggere
+    ("jaz berem", "io leggo", WordType.VERB),
+    ("ti bereš", "tu leggi"),
+    ("on/ona bere", "lui/lei legge"),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+)
+
+verbs[1] = (
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+)
+
+verbs[1] = (
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+)
+
+verbs[1] = (
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+)
+
+
 verbs["govoriti"] = (
     ("jaz govorim", "io parlo", WordType.VERB),
     ("ti govoris", "tu parli", WordType.VERB),
@@ -87,7 +196,7 @@ verbs["govoriti"] = (
     ("mi govorimo", "noi parliamo", WordType.VERB),
     ("vi govorite", "voi parlate", WordType.VERB),
     ("oni/one govorijo", "essi/esse parlano", WordType.VERB),
-    ("", "", WordType.VERB),
+    ("jaz ne govorim nemško", "io non parlo tedesco", WordType.VERB),
     ("", "", WordType.VERB),
     ("", "", WordType.VERB),
     ("", "", WordType.VERB),
