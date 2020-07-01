@@ -138,7 +138,7 @@ def find_random_answers(dict_slo, slo_dict_values, right_answer_pos: int, result
 
     while len(result) < result_len:
 
-        pos = random.randrange(0, len(dict_slo) - 1)
+        pos = random.randrange(0, len(dict_slo))
         if pos == right_answer_pos:
             continue
         if slo_dict_values[pos].multiple_words != right_answer.multiple_words:
@@ -183,7 +183,6 @@ def start_tests(my_dictionary, int_seed=0):
 
     while 1:
 
-        # if len(asked_questions) == max_questions:
         if len(questions_to_ask) == 0:
             print("***finito!***")
             break
@@ -193,12 +192,6 @@ def start_tests(my_dictionary, int_seed=0):
         current_pos = questions_to_ask[rnd_value]
         del questions_to_ask[rnd_value]
 
-        # current_pos = random.randrange(0, len(dict_slo) )
-        #
-        # if current_pos in asked_questions:
-        #     continue
-        # else:
-        #     asked_questions.append(current_pos)
         asked_questions.append(current_pos)
 
         print()

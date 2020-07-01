@@ -7,11 +7,11 @@ enota = {}
 
 
 enota[6] = (
-    ("prova", "1"),
-    ("prova2", "2"),
-    ("prova3", "3"),
-    ("prova4", "4"),
-    ("prova5", "5"),
+    ("in", "e"),
+    ("kaj delas, ko si na morju?", ""),
+    ("pijem toplo cokolado", ""),
+    ("moje mesto lahko greš v kino", "nella mia città posso andare al cinema"),
+    ("cel dan", "tutto il giorno"),
     ("", ""),
     ("", ""),
     ("", ""),
@@ -20,11 +20,7 @@ enota[6] = (
     ("", ""),
     ("", ""),
     ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
+    ("", ""), # č š ž
     ("", ""),
     ("", ""),
     ("", ""),
