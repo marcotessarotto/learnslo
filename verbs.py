@@ -161,6 +161,31 @@ verbs["delati"] = (
 )
 
 
+
+
+
+
+verbs["hoteti"] = (
+    ("hočem", "voglio"),
+    ("hočeš", "vuoi"),
+    ("hoče", "vuole"),
+    ("hočemo", "vogliamo"),
+    ("hočete", "volete"),
+    ("hočejo", "vogliono"),
+    ("nočem", "non voglio"),
+    ("nočeš", "non vuoi"),
+    ("noče", "non vuole"),
+    ("nočemo", "non vogliamo"),
+    ("nočete", "non volete"),
+    ("nočejo", "non vogliono"),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+)
+
+
 verbs["imeti"] = (
     ("jaz imam", "io ho"),
     ("ti imaš", "tu hai"),
@@ -168,8 +193,51 @@ verbs["imeti"] = (
     ("mi/me imamo", "noi abbiamo"),
     ("vi imate", "voi avete"),
     ("oni/one imajo", "essi/esse hanno"),
+    ("imam", "ho"),
+    ("imaš", "hai"),
+    ("ima", "ha"),
+    ("imamo", "abbiamo"),
+    ("imate", "avete"),
+    ("imajo", "hanno"),
+    ("nimam", "non ho"),
+    ("nimaš", "non hai"),
+    ("nima", "non ha"),
+    ("nimamo", "non abbiamo"),
+    ("nimate", "non avete"),
+    ("nimajo", "non hanno"),
+    ("a/ali imam?", "ho?"),
+    ("a/ali imaš?", "hai?"),
+    ("a/ali ima?", "ha?"),
+    ("a/ali imamo?", "abbiamo?"),
+    ("a/ali imate?", "avete?"),
+    ("a/ali imajo?", "hanno?"),
     ("", ""),
     ("", ""),
+    ("", ""),
+    ("", ""),
+)
+
+
+
+verbs["iti"] = (
+    ("grem", "vado"),
+    ("greš", "vai"),
+    ("gre", "va"),
+    ("gremo", "andiamo"),
+    ("greste", "andate"),
+    ("grejo", "vanno"),
+    ("ne grem", "non vado"),
+    ("ne greš", "non vai"),
+    ("ne gre", "non va"),
+    ("ne gremo", "non andiamo"),
+    ("ne greste", "non andate"),
+    ("ne grejo", "non vanno"),
+    ("a/ali grem ...?", "vado?"),
+    ("a/ali greš ...?", "vai?"),
+    ("a/ali gre ...?", "va?"),
+    ("a/ali gremo ...?", "andiamo?"),
+    ("a/ali greste ...?", "andate?"),
+    ("a/ali grejo ...?", "vanno?"),
     ("", ""),
     ("", ""),
     ("", ""),
@@ -180,7 +248,6 @@ verbs["imeti"] = (
     ("", ""),
     ("", ""),
 )
-
 
 verbs["piti"] = (
     ("pijem", "io bevo", WordType.VERB),
@@ -201,15 +268,15 @@ verbs["piti"] = (
 
 
 
-verbs[1] = (
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
+verbs["PISATI"] = (
+    ("jaz pišem", ""),
+    ("ti pišeš", ""),
+    ("on piše", ""),
+    ("ona piše", ""),
+    ("mi pišemo", ""),
+    ("vi pišete", ""),
+    ("oni pišejo", ""),
+    ("one pišejo", ""),
     ("", ""),
     ("", ""),
     ("", ""),
@@ -395,12 +462,6 @@ verbs[2] = (
     ("", ""),
 )
 
-
-
-# dict_slo, dict_ita = process_dictionary(verbs)
-
-
-# print(f"len(dict_slo) = {len(dict_slo)}")
 
 start_tests(verbs, int_seed=None)
 
