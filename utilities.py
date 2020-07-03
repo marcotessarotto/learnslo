@@ -92,12 +92,12 @@ def process_dictionary(my_dict, dict_slo={}, dict_ita={}):
             for count, item in enumerate(row):
                 if count == 0:
                     i.category = k
-                    i.slovensko = item
+                    i.slovensko = item.lower()
                     i.slovensko_num_words = len(item.split())
                     i.multiple_words = i.slovensko_num_words > 1
                     continue
                 elif count == 1:
-                    i.italiansko = item
+                    i.italiansko = item.lower()
                     continue
                 else:
                     if type(item) is BookPage:
@@ -205,14 +205,14 @@ def start_tests(my_dictionary, int_seed=0):
 
         random.shuffle(possible_answers)
 
-        print(f"cosa vuol dire: '{test_key.lower()}' ?")
+        print(f"cosa vuol dire: '{test_key}' ?")
 
         # print("scegli tra le risposte:")
 
         # print()
         counter = 0
         for i in possible_answers:
-            print(f"{chr(ord('a') + counter)} : {i.lower()}")
+            print(f"{chr(ord('a') + counter)} : {i}")
             counter += 1
 
         data = input("risposta (q per uscire): ")
