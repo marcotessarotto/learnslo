@@ -11,7 +11,7 @@ enota[5] = (
     ("kakšno pico imaš rad/a?", "che tipo di pizza ti piace?"),
     ("kakšen sendvič imaš rad/a?", "che tipo di panino ti piace?"),
     ("potem", "dopo"),
-    ("kam greš ?", "dove vai?"),
+    ("kam greš?", "dove vai?"),
     ("od kod si?", "da dove arrivi/di dove sei?"),
     ("sem iz Trsta", "vengo da Trieste", Gender.MALE),
     ("sem iz Italije", "vengo dall'Italia", Gender.FEMALE),
