@@ -29,7 +29,7 @@ enota[5] = (
     ("paradižnik", "pomodoro"),
     ("solata", "lattuga"),
     ("čips", "patatine"),
-    ("čokolada", "čokolada"),
+    ("čokolada", "cioccolata"),
     ("jajce", "uovo"),
     ("jogurt", "yogurt"),
     ("kruh", "pane"),
