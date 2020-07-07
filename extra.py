@@ -109,5 +109,9 @@ extra[1] = (
 )
 
 
-start_tests(extra, int_seed=None)
+def run_me():
+    start_tests(extra, int_seed=None)
 
+
+if __name__ == "__main__":
+    run_me()

@@ -105,5 +105,9 @@ enota[6] = (
 )
 
 
-start_tests(enota, int_seed=None)
+def run_me():
+    start_tests(enota, int_seed=None)
 
+
+if __name__ == "__main__":
+    run_me()

@@ -463,5 +463,10 @@ verbs[2] = (
 )
 
 
-start_tests(verbs, int_seed=None)
+def run_me():
+    start_tests(verbs, int_seed=None)
+
+
+if __name__ == "__main__":
+    run_me()
 

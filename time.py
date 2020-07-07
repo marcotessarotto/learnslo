@@ -136,7 +136,11 @@ time_dict["extra"] = (
     ("", ""),
 )
 
-start_tests(time_dict, int_seed=None)
+
+def run_me():
+    start_tests(time_dict, int_seed=None)
 
 
+if __name__ == "__main__":
+    run_me()
 
