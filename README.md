@@ -1,5 +1,9 @@
-# learnslo
+# learnslo - work in progress
 
-utilities for learning Slovenina language (for italian speakers)
+utilities for learning Slovenian language (for italian speakers)
 
-to be used with 
+asks to user to choose the correct italian translation to slovenian words or sentences.
+
+maybe these programs can be more useful if used with this book:
+
+https://centerslo.si/en/books/textbooks-and-handbooks/beginner-level/slovenscina-ekspres-1/
