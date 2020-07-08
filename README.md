@@ -1,5 +1,7 @@
 # learnslo - work in progress
 
+[![Run on Repl.it](https://repl.it/badge/github/marcotessarotto/learnslo)](https://repl.it/github/marcotessarotto/learnslo)
+
 utilities for learning Slovenian language (for italian speakers)
 
 the program asks user to choose among the correct italian translation of slovenian words or sentences.
