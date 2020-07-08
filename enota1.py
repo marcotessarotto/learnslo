@@ -240,7 +240,7 @@ enota[1] = (
     ("Mark je iz Kanade", "Mark viene dal Canada"),
     ("Jaz sem študent", "Io sono uno studente universitario"),
     ("Sara, Mija in Tjaša so študentke", "Sara, Mija e Tjaša sono studentesse universitarie"),
-    ("Tomaž Novak je zdravnik", "Tomaž Novak è un medico"),
+    ("Tomaž je zdravnik", "Tomaž è un medico"),
     ("Maja, Peter in Nina so iz Slovenije", "Maja, Peter e Nina sono della Slovenia"),
     ("Mi smo študenti", "noi siamo studenti universitari"),
     ("Gospa Turner, a ste vi iz Avstralije?", "Signora Turner, lei viene dall'Australia?"),
