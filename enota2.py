@@ -162,7 +162,7 @@ enota[2] = (
     ("on ima rdeče lase in modre oči", "ha i capelli rossi e gli occhi azzurri"),
     ("ona ima blond lase in modre oči", "lei ha i capelli biondi e gli occhi azzurri"),
     ("on ima rjave lase in modre oči", "ha i capelli castani e gli occhi azzurri"),
-    ("ona ima blond lase in sive oči", ""),
+    ("ona ima blond lase in sive oči", "lei ha i capelli biondi e gli occhi grigi"),
     ("", ""),
     ("", ""),
     ("", ""),
