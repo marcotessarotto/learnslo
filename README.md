@@ -22,7 +22,7 @@ e : bene
 f : giugno
 risposta (q per uscire): f
 OK
-slovensko='junij' italiansko='giugno'
+slovensko='junij' italiano='giugno'
 
 item 37 - 2/249
 cosa vuol dire: 'lahko noč' ?

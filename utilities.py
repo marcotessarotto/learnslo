@@ -1,4 +1,4 @@
-# https://docs.python.org/3.8/library/enum.html
+import contextlib
 from enum import Enum
 
 import random
@@ -48,34 +48,24 @@ class Gender(Enum):
 class Item:
 
     def __str__(self):
-        result = f"slovensko='{self.slovensko}' italiansko='{self.italiansko}'"
+        result = f"slovensko='{self.slovensko}' italiano='{self.italiansko}'"
 
-        try:
+        with contextlib.suppress(AttributeError):
             result += f" bookpage={self.bookpage}"
-        except:
-            pass
-
-        try:
+        with contextlib.suppress(AttributeError):
             result += f" wordtype={self.wordtype}"
-        except:
-            pass
-
-        try:
+        with contextlib.suppress(AttributeError):
             result += f" level={self.level}"
-        except:
-            pass
-
-        try:
+        with contextlib.suppress(AttributeError):
             result += f" gender={self.gender}"
-        except:
-            pass
-
         return result
 
 
-def process_dictionary(my_dict, dict_slo={}, dict_ita={}):
-    # dict_slo = {}
-    # dict_ita = {}
+def process_dictionary(my_dict, dict_slo=None, dict_ita=None):
+    if dict_slo is None:
+        dict_slo = {}
+    if dict_ita is None:
+        dict_ita = {}
 
     for k, v in my_dict.items():
         print(f"process_dictionary key={k}")
@@ -95,24 +85,19 @@ def process_dictionary(my_dict, dict_slo={}, dict_ita={}):
                     i.slovensko = item.lower()
                     i.slovensko_num_words = len(item.split())
                     i.multiple_words = i.slovensko_num_words > 1
-                    continue
                 elif count == 1:
                     i.italiansko = item.lower()
-                    continue
-                else:
-                    if type(item) is BookPage:
-                        # print("BookPage!")
-                        i.bookpage = item.page
-                    elif type(item) is WordType:
-                        # print("WordType!")
-                        i.wordtype = item
-                    elif type(item) is Level:
-                        # print("Level!")
-                        i.level = item
-                    elif type(item) is Gender:
-                        i.gender = item
-
-                    # print(count, item)
+                elif type(item) is BookPage:
+                    # print("BookPage!")
+                    i.bookpage = item.page
+                elif type(item) is WordType:
+                    # print("WordType!")
+                    i.wordtype = item
+                elif type(item) is Level:
+                    # print("Level!")
+                    i.level = item
+                elif type(item) is Gender:
+                    i.gender = item
 
             # print(i)
             # print("***\n")
@@ -195,7 +180,7 @@ def start_tests(my_dictionary, int_seed=0):
         asked_questions.append(current_pos)
 
         print()
-        print(f"item {current_pos} - {len(asked_questions)}/{max_questions}")
+        print(f"item #{current_pos} - {len(asked_questions)}/{max_questions}")
 
         test_key = slo_dict_keys[current_pos]
         test_value = slo_dict_values[current_pos]
