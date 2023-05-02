@@ -17,7 +17,7 @@ class WordNote:
         self.text = text
 
 
-class PronNote: # pronounciation note
+class PronNote: # pronunciation note
     def __init__(self, text):
         self.text = text
 
@@ -168,7 +168,7 @@ def start_tests(my_dictionary, int_seed=0):
 
     while 1:
 
-        if len(questions_to_ask) == 0:
+        if not questions_to_ask:
             print("***finito!***")
             break
 
@@ -192,13 +192,8 @@ def start_tests(my_dictionary, int_seed=0):
 
         print(f"cosa vuol dire: '{test_key}' ?")
 
-        # print("scegli tra le risposte:")
-
-        # print()
-        counter = 0
-        for i in possible_answers:
+        for counter, i in enumerate(possible_answers):
             print(f"{chr(ord('a') + counter)} : {i}")
-            counter += 1
 
         data = input("risposta (q per uscire): ")
         if data is None or data == "q":
