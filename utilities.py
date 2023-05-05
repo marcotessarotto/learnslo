@@ -11,6 +11,7 @@ class WordType(Enum):
     ADVERB = 3
     PRONOUN = 4
     CONJUNCTION = 5
+    NUMBER = 6
 
 
 class WordNote:
