@@ -10,6 +10,7 @@ class WordType(Enum):
     SENTENCE = 2
     ADVERB = 3
     PRONOUN = 4
+    CONJUNCTION = 5
 
 
 class WordNote:
