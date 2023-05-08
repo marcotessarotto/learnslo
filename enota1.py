@@ -150,7 +150,7 @@ enota[1] = (
     ("sto", "100", WordType.NUMBER),
     ("tisoč", "1000", WordType.NUMBER),
     ("milijon", "1.000.000", WordType.NUMBER),
-    ("a mi daš telefonsko številko, prosim?", "mi dai il numero di telefono, per favore?"),
+    ("a mi daš telefonsko številko, prosim?", "mi dai il numero di telefono, per favore?"), # telefonsko številko: accusativo
     ("moja telefonska številka je ...", "il mio numero di telefono è ..."),
     ("koliko", "quanto"),
     ("koliko si star/a?", "quanti anni hai (quanto sei vecchio)?"),
