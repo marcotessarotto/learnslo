@@ -10,6 +10,15 @@ these program can be more useful if used while studying this book:
 
 https://books.google.it/books?id=qtO7jwEACAAJ&hl=it&source=gbs_ViewAPI&redir_esc=y
 
+
+also useful:
+
+https://www.slovenscina.eu/en
+
+https://www.slonline.si/
+
+
+
 examples:
 ```
 item 76 - 1/249

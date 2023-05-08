@@ -30,8 +30,8 @@ enota[1] = (
     ("lahko uporabite", "puoi usare"),
     ("identiteta", "identità"),
     ("abeceda", "alfabeto"),
-    ("številka", "numero"),
-    ("številke", "numeri"),
+    ("številka", "numero", Gender.FEMALE),  # genere femminile
+    ("številke", "numeri", Gender.FEMALE),
     ("države", "stati"),
     ("poklici", "professioni"),
     ("jeziki", "le lingue"),
