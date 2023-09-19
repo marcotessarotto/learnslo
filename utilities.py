@@ -47,6 +47,10 @@ class Gender(Enum):
     FEMALE = 2
 
 
+class WebLink:
+    def __init__(self, url):
+        self.url = url
+
 class Item:
 
     def __str__(self):
@@ -100,6 +104,8 @@ def process_dictionary(my_dict, dict_slo=None, dict_ita=None):
                     i.level = item
                 elif type(item) is Gender:
                     i.gender = item
+                elif type(item) is WebLink:
+                    i.weblink = item
 
             # print(i)
             # print("***\n")

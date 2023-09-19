@@ -5,7 +5,7 @@ import enota4
 import enota5
 import enota6
 import extra
-import numbers
+import my_numbers
 import time
 import verbs
 
@@ -44,7 +44,7 @@ while 1:
     elif cmd == 'g':
         extra.run_me()
     elif cmd == 'h':
-        numbers.run_me()
+        my_numbers.run_me()
     elif cmd == 'i':
         time.run_me()
     elif cmd == 'l':
