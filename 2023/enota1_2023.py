@@ -17,7 +17,7 @@ enota[1] = (
     ("svetovati", "consigliare", WordType.VERB),
     ("svetovalec", "consigliere"),
     ("dnevne novice", "notizie del giorno"),
-    ("dnevnik", "diario"),
+    ("dnevnik", "diario"), # "giornale"
     ("a veste?", "lo sapete?"),
     ("kriza", "crisi"),
     ("plača", "stipendio", WebLink("https://app.glosbe.com/audio/166556:0002382616"), AudioLink("https://glosbe.com/fb_aud/mp3/e22382616_audio-by-166556.mp3")),

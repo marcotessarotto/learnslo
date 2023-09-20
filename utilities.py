@@ -236,7 +236,7 @@ def start_tests_ita2slo(my_dictionary, int_seed=0):
 
         random.shuffle(possible_answers)
 
-        print(f"cosa significa: '{test_key}' ?")
+        print(f"come tradurre: '{test_key}' ?")
 
         for counter, i in enumerate(possible_answers):
             print(f"{chr(ord('a') + counter)} : {i}")
