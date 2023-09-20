@@ -32,6 +32,7 @@ enota[1] = (
     ("Ne najdem besed", "Non trovo le parole", WebLink("https://it.glosbe.com/sl/it/Ne%20najdem%20besed")),
     ("novica", "notizia", WebLink("https://it.glosbe.com/sl/it/novica")), # "novità"
     ("novice", "notiziario", WebLink("https://it.glosbe.com/sl/it/novice")),
+    ("prenos", "trasmissione", WebLink("https://it.glosbe.com/sl/it/prenos")), # trasferimento, cessione
 )
 
 
