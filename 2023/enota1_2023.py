@@ -7,6 +7,9 @@ from utilities import WordType, WordNote, PronNote, BookPage, Level, Item, proce
 
 enota = {}
 
+# TODO: supporto significati multipli
+# es: ("novica", ("notizia", "novità"))
+
 enota[1] = (
     ("enota", "unità"),
     ("plačati", "pagare", WordType.VERB, WebLink("https://app.glosbe.com/audio/183515:0004896222"), AudioLink("https://glosbe.com/fb_aud/mp3/dB4896222_audio-by-183515.mp3")),
@@ -27,7 +30,8 @@ enota[1] = (
     ("besedilo", "testo"),
     ("če ste spregledali", "se avete perso", WebLink("https://it.glosbe.com/sl/it/%C4%8De%20ste%20spregledali")),
     ("Ne najdem besed", "Non trovo le parole", WebLink("https://it.glosbe.com/sl/it/Ne%20najdem%20besed")),
-
+    ("novica", "notizia", WebLink("https://it.glosbe.com/sl/it/novica")), # "novità"
+    ("novice", "notiziario", WebLink("https://it.glosbe.com/sl/it/novice")),
 )
 
 
