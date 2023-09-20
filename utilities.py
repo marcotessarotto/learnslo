@@ -51,6 +51,12 @@ class WebLink:
     def __init__(self, url):
         self.url = url
 
+
+class AudioLink:
+    def __init__(self, url):
+        self.url = url
+
+
 class Item:
 
     def __str__(self):
@@ -90,6 +96,7 @@ def process_dictionary(my_dict, dict_slo=None, dict_ita=None):
                     i.category = k
                     i.slovensko = item.lower()
                     i.slovensko_num_words = len(item.split())
+                    # multiple_words is true if slovensko has more than one word
                     i.multiple_words = i.slovensko_num_words > 1
                 elif count == 1:
                     i.italiansko = item.lower()
@@ -129,11 +136,19 @@ def find_random_answers(dict_slo, slo_dict_values, right_answer_pos: int, result
 
     used_positions = []
 
+    loop_counter = 0
+
     while len(result) < result_len:
+
+        loop_counter += 1
+        if loop_counter > 1000:
+            print("!!! loop_counter > 1000")
+            break
 
         pos = random.randrange(0, len(dict_slo))
         if pos == right_answer_pos:
             continue
+        # multiple_words is true if slovensko has more than one word
         if slo_dict_values[pos].multiple_words != right_answer.multiple_words:
             continue
 
