@@ -176,6 +176,7 @@ enota[1] = (
     ("kaj si po poklicu?", "cosa sei di mestiere/che lavoro fai?"),
     ("po poklicu sem ...", "di mestiere sono ..."),
     ("delam kot ...", "lavoro come ..."),
+    ("jaz delam", "io lavoro"),
     # ("studiram ...", "studio ..."),
     # ("kaj počneš?", "cosa fai?"),
     ("kaj delaš?", "cosa fai?"),
