@@ -71,6 +71,8 @@ class Item:
             result += f" level={self.level}"
         with contextlib.suppress(AttributeError):
             result += f" gender={self.gender}"
+        with contextlib.suppress(AttributeError):
+            result += f" weblink={self.weblink}"
         return result
 
 
@@ -87,6 +89,34 @@ def process_dictionary(my_dict, dict_slo=None, dict_ita=None):
     if dict_ita is None:
         dict_ita = {}
 
+    def process_row(row):
+        item = Item()
+
+        for count, val in enumerate(row):
+            if count == 0:
+                item.category = k
+                item.slovensko = val.lower()
+                item.slovensko_num_words = len(val.split())
+                # multiple_words is true if slovensko has more than one word
+                item.multiple_words = item.slovensko_num_words > 1
+            elif count == 1:
+                item.italiansko = val.lower()
+            elif type(val) is BookPage:
+                # print("BookPage!")
+                item.bookpage = val.page
+            elif type(val) is WordType:
+                # print("WordType!")
+                item.wordtype = val
+            elif type(val) is Level:
+                # print("Level!")
+                item.level = val
+            elif type(val) is Gender:
+                item.gender = val
+            elif type(val) is WebLink:
+                item.weblink = val
+
+        return item
+
     for k, v in my_dict.items():
         print(f"process_dictionary key={k}")
 
@@ -95,38 +125,21 @@ def process_dictionary(my_dict, dict_slo=None, dict_ita=None):
             if row[0] == "":
                 continue
 
-            i = Item()
+            # if row[1] is a tuple or a list, then expand to multiple rows
+            if type(row[1]) is tuple or type(row[1]) is list:
+                for i in row[1]:
+                    new_row = list(row)
+                    new_row[1] = i
+                    item = process_row(new_row)
 
-            # print(row)
+                    dict_slo[item.slovensko] = item
+                    dict_ita[item.italiansko] = item
+                continue
 
-            for count, item in enumerate(row):
-                if count == 0:
-                    i.category = k
-                    i.slovensko = item.lower()
-                    i.slovensko_num_words = len(item.split())
-                    # multiple_words is true if slovensko has more than one word
-                    i.multiple_words = i.slovensko_num_words > 1
-                elif count == 1:
-                    i.italiansko = item.lower()
-                elif type(item) is BookPage:
-                    # print("BookPage!")
-                    i.bookpage = item.page
-                elif type(item) is WordType:
-                    # print("WordType!")
-                    i.wordtype = item
-                elif type(item) is Level:
-                    # print("Level!")
-                    i.level = item
-                elif type(item) is Gender:
-                    i.gender = item
-                elif type(item) is WebLink:
-                    i.weblink = item
+            item = process_row(row)
 
-            # print(i)
-            # print("***\n")
-
-            dict_slo[i.slovensko] = i
-            dict_ita[i.italiansko] = i
+            dict_slo[item.slovensko] = item
+            dict_ita[item.italiansko] = item
 
     return dict_slo, dict_ita
 
@@ -295,7 +308,7 @@ def start_tests(my_dictionary, int_seed=0):
     Effettua il test:
     chiede all'utente di tradurre le parole dallo sloveno all'italiano scegliendo tra 5 possibili risposte (una sola è corretta)
 
-    :param my_dictionary:
+    :param my_dictionary: dizionario delle parole da tradurre
     :param int_seed:
     :return:
     """
