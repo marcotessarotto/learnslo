@@ -138,7 +138,19 @@ time_dict["extra"] = (
 
 
 def run_me():
-    start_tests(time_dict, int_seed=None)
+    dict_slo, dict_ita = process_dictionary(time_dict)
+
+    print("1 - test da sloveno a italiano")
+    print("2 - test da italiano a sloveno")
+    data = input("risposta (q per uscire): ")
+    if data is None or data == "q":
+        return
+    elif data == "1":
+        start_tests(dict_slo)
+    elif data == "2":
+        start_tests(dict_ita, slo2ita=False)
+    else:
+        print("risposta non valida")
 
 
 if __name__ == "__main__":
