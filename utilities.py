@@ -76,15 +76,20 @@ class Item:
         result = f"slovensko='{self.slovensko}' italiano='{self.italiansko}'"
 
         with contextlib.suppress(AttributeError):
-            result += f" bookpage={self.bookpage}"
+            if self.bookpage is not None:
+                result += f" bookpage={self.bookpage}"
         with contextlib.suppress(AttributeError):
-            result += f" wordtype={self.wordtype}"
+            if self.wordtype is not None:
+                result += f" wordtype={self.wordtype}"
         with contextlib.suppress(AttributeError):
-            result += f" level={self.level}"
+            if self.level is not None:
+                result += f" level={self.level}"
         with contextlib.suppress(AttributeError):
-            result += f" gender={self.gender}"
+            if self.gender is not None:
+                result += f" gender={self.gender}"
         with contextlib.suppress(AttributeError):
-            result += f" weblink={self.weblink}"
+            if self.weblink is not None:
+                result += f" weblink={self.weblink}"
         return result
 
 
@@ -455,7 +460,10 @@ def start_tests(dict_slo, int_seed=0, slo2ita=True):
         #
         # random.shuffle(possible_answers)
 
-        print(f"cosa significa: '{current_question}' ?")
+        if slo2ita:
+            print(f"cosa significa: '{current_question}' ?")
+        else:
+            print(f"come si traduce: '{current_question}' ?")
 
         for counter, i in enumerate(possible_answers):
             print(f"{chr(ord('a') + counter)} : {i.italiansko if slo2ita else i.slovensko}")
