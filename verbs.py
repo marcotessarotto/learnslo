@@ -269,14 +269,14 @@ verbs["piti"] = (
 
 
 verbs["PISATI"] = (
-    ("jaz pišem", ""),
-    ("ti pišeš", ""),
-    ("on piše", ""),
-    ("ona piše", ""),
-    ("mi pišemo", ""),
-    ("vi pišete", ""),
-    ("oni pišejo", ""),
-    ("one pišejo", ""),
+    ("jaz pišem", "io parlo"),
+    ("ti pišeš", "tu parli"),
+    ("on piše", "lui parla"),
+    ("ona piše", "lei parla"),
+    ("mi pišemo", "noi parliamo"),
+    ("vi pišete", "voi parlate"),
+    ("oni pišejo", "essi parlano"),
+    ("one pišejo", "esse parlano"),
     ("", ""),
     ("", ""),
     ("", ""),
@@ -464,7 +464,19 @@ verbs[2] = (
 
 
 def run_me():
-    start_tests(verbs, int_seed=None)
+    dict_slo, dict_ita = process_dictionary(verbs)
+
+    print("1 - test da sloveno a italiano")
+    print("2 - test da italiano a sloveno")
+    data = input("risposta (q per uscire): ")
+    if data is None or data == "q":
+        return
+    elif data == "1":
+        start_tests(dict_slo)
+    elif data == "2":
+        start_tests(dict_ita, slo2ita=False)
+    else:
+        print("risposta non valida")
 
 
 if __name__ == "__main__":
