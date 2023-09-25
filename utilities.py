@@ -20,7 +20,7 @@ class WordNote:
         self.text = text
 
 
-class PronNote: # pronunciation note
+class PronNote:  # pronunciation note
     def __init__(self, text):
         self.text = text
 
@@ -61,12 +61,13 @@ class AudioLink:
 class Item:
 
     def __init__(self):
-        self.slovensko = None # is list of strings
-        self.italiansko = None # is a list of strings
+        self.slovensko = None  # is list of strings
+        self.italiansko = None  # is a list of strings
         self.category = None
         self.bookpage = None
         self.wordtype = None
         self.level = None
+        self.multiple_words = False
 
     # make Item comparable
     def __eq__(self, other):
@@ -180,34 +181,28 @@ def process_dictionary(my_dict, dict_slo=None, dict_ita=None):
     return dict_slo, dict_ita
 
 
-def find_random_answers(dict_slo, current_question, current_answer,
-                        # slo_dict_values, right_answer_pos: int,
-                        result_len=5, ita2slo=False):
+def find_random_answers(dict_lang,
+                        answers,
+                        current_question: str,
+                        current_answer: Item,
+                        result_len=5,
+                        slo2ita=True):
     """
     Costruisce un insieme di risposte sbagliate
-    :param dict_slo:
-    :param slo_dict_values:
-    :param right_answer_pos:
-    :param result_len:
+    :param dict_lang:
+    :param answers: lista di risposte (include quella corretta)
+    :param current_question:
+    :param current_answer:
+    :param result_len: numero di risposte da restituire
     :param ita2slo: True se si sta facendo il test di traduzione dall'italiano allo sloveno
     :return:
     """
 
-    result = []
-
-    # if slo_dict_values is None:
-    #     # raise exception
-    #     raise ValueError("slo_dict_values is None")
-
-    # right_answer = slo_dict_values[right_answer_pos]
-    # right_answer is a list; find a random element in the list
-    # right_answer = random.choice(right_answer)
-
-    used_positions = []
+    result = answers
 
     loop_counter = 0
 
-    keys_to_select_from = list(dict_slo.keys())
+    keys_to_select_from = list(dict_lang.keys())
     # remove current_question from the list
     keys_to_select_from.remove(current_question)
 
@@ -225,7 +220,7 @@ def find_random_answers(dict_slo, current_question, current_answer,
             raise Exception("random_key == current_question")
 
         # choose a random value in the list of values for the key
-        random_answer = random.choice(dict_slo[random_key])
+        random_answer = random.choice(dict_lang[random_key])
 
         if random_answer.multiple_words != current_answer.multiple_words:
             continue
@@ -233,171 +228,39 @@ def find_random_answers(dict_slo, current_question, current_answer,
         if random_answer in result:
             continue
 
+        if not slo2ita:
+            # if the answer is already in the list, skip it
+            skip = any(i.slovensko == random_answer.slovensko for i in result)
+            if skip:
+                continue
+
         result.append(random_answer)
-        # result.append(random_answer.slovensko if ita2slo else random_answer.italiansko)
-
-
-        # if slo_dict_values[pos].multiple_words != right_answer.multiple_words:
-        #     continue
-        #
-        #
-        # pos = random.randrange(0, len(dict_slo))
-        # if pos == right_answer_pos:
-        #     continue
-        # # multiple_words is true if slovensko has more than one word
-        # if slo_dict_values[pos].multiple_words != right_answer.multiple_words:
-        #     continue
-        #
-        # if pos in used_positions:
-        #     continue
-        #
-        # result.append(slo_dict_values[pos].slovensko if ita2slo else slo_dict_values[pos].italiansko)
-        #
-        # used_positions.append(pos)
 
     return result
 
 
-# def start_tests_ita2slo(my_dictionary, int_seed=0):
-#     """
-#     Effettua il test:
-#     chiede all'utente di tradurre le parole dall'italiano allo sloveno scegliendo tra 5 possibili risposte (una sola è corretta)
-#
-#     :param my_dictionary:
-#     :param int_seed:
-#     :return:
-#     """
-#     # creare lista delle domande già fatte: ok
-#     # creare lista delle domande sbagliate: ok
-#
-#     dict_slo, dict_ita = process_dictionary(my_dictionary)
-#     # len(dict_slo) == len(dict_ita)
-#
-#     max_questions = len(dict_ita)
-#
-#     print(f"len(dict_slo) = {max_questions}")
-#
-#     if int_seed != 0:
-#         random.seed(a=int_seed)
-#
-#     ita_dict_keys = list(dict_ita.keys())
-#     ita_dict_values = list(dict_ita.values())
-#
-#     print("***tests***")
-#
-#     number_of_questions = 0
-#     correct_answers = 0
-#
-#     asked_questions = []
-#     wrong_answers = []
-#
-#     r = range(len(dict_ita))
-#     questions_to_ask = list(r)
-#
-#     while 1:
-#
-#         if not questions_to_ask:
-#             print("***finito!***")
-#             break
-#
-#         rnd_value = random.randrange(0, len(questions_to_ask))
-#
-#         current_pos = questions_to_ask[rnd_value]
-#         del questions_to_ask[rnd_value]
-#
-#         asked_questions.append(current_pos)
-#
-#         print()
-#         print(f"item #{current_pos} - {len(asked_questions)}/{max_questions}")
-#
-#         test_key = ita_dict_keys[current_pos]
-#         test_value = ita_dict_values[current_pos]
-#
-#         possible_answers = find_random_answers(dict_ita, ita_dict_values, current_pos, ita2slo=True)
-#         possible_answers.append(ita_dict_values[current_pos].slovensko)
-#
-#         random.shuffle(possible_answers)
-#
-#         print(f"come tradurre: '{test_key}' ?")
-#
-#         for counter, i in enumerate(possible_answers):
-#             print(f"{chr(ord('a') + counter)} : {i}")
-#
-#         data = input("risposta (q per uscire): ")
-#         if data is None or data == "q":
-#             break
-#
-#         number_of_questions += 1
-#
-#         try:
-#             answer_pos = ord(data) - ord('a')
-#         except TypeError:
-#             print("?!?!?2")
-#
-#             answer_pos = 100
-#         # print(answer_pos)
-#
-#         correct_answer = test_value.slovensko
-#
-#         try:
-#             user_answer = possible_answers[answer_pos]
-#         except IndexError:
-#             print("?!?!?1")
-#             user_answer = None
-#
-#         if correct_answer == user_answer:
-#             print("OK")
-#             correct_answers += 1
-#             print(test_value)
-#         else:
-#             print("NOT OK")
-#             print(f"*** risposta corretta: {correct_answer}")
-#             wrong_answers.append(current_pos)
-#
-#         # print(tests)
-#         # print(values[pos])
-#
-#         if answer_pos == -1:
-#             break
-#
-#     print(f"number_of_questions = {number_of_questions}")
-#     print(f"correct_answers = {correct_answers}")
-#
-#     if len(wrong_answers) > 0:
-#         print()
-#         print("***errori***")
-#         for pos in wrong_answers:
-#             question = ita_dict_values[pos]
-#             print(question)
-
-
-def start_tests(dict_slo, int_seed=0, slo2ita=True):
+def start_tests(dict_lang, int_seed=0, slo2ita=True):
     """
     Effettua il test:
     chiede all'utente di tradurre le parole dallo sloveno all'italiano scegliendo tra 5 possibili risposte (una sola è corretta)
 
-    :param my_dictionary: dizionario delle parole da tradurre
+    :param dict_lang: dizionario da utilizzare nel test
+    :param slo2ita: True se si sta facendo il test di traduzione dallo sloveno all'italiano
     :param int_seed:
     :return:
     """
-
-    # dict_slo, dict_ita = process_dictionary(my_dictionary)
-    # print(len(dict_slo))
-    # print(len(dict_ita))
-
-    max_questions = len(dict_slo)
+    max_questions = len(dict_lang)
 
     print(f"len(dict_slo) = {max_questions}")
 
     if int_seed != 0:
         random.seed(a=int_seed)
+    else:
+        random.seed()
 
-    # slo_dict_keys = list(dict_slo.keys())
     # make a copy of dict_slo.keys() because we will remove items from it
-    slo_dict_keys = list(dict_slo.keys())
+    dict_keys = list(dict_lang.keys())
 
-    #
-    # slo_dict_values = list(dict_slo.values())
     # Using list comprehension to concatenate all values into a single list
     # slo_dict_values = [item for sublist in dict_slo.values() for item in sublist]
 
@@ -410,55 +273,34 @@ def start_tests(dict_slo, int_seed=0, slo2ita=True):
     asked_questions = []
     wrong_answers = []
 
-    r = range(len(dict_slo))
+    r = range(len(dict_lang))
     questions_to_ask = list(r)
 
-    while slo_dict_keys:
-
+    while dict_keys:
         current_pos += 1
 
-        # if not slo_dict_keys:
-        #     print("***finito!***")
-        #     break
-
         # Choose a random item from the list slo_dict_keys
-        current_question = random.choice(slo_dict_keys)
+        current_question = random.choice(dict_keys)
 
-        # Remove the chosen key from the list
-        slo_dict_keys.remove(current_question)
+        # Remove the chosen question from the list
+        dict_keys.remove(current_question)
 
         asked_questions.append(current_question)
 
         # choose random answer
-        correct_answer = random.choice(dict_slo[current_question])
+        correct_answer = random.choice(dict_lang[current_question])
 
-        possible_answers = find_random_answers(dict_slo,
+        possible_answers = find_random_answers(dict_lang,
+                                               answers=[correct_answer],
                                                current_question=current_question,
                                                current_answer=correct_answer,
-                                              )
-        # possible_answers.append(slo_dict_values[current_pos].italiansko)
-        possible_answers.append(correct_answer)
+                                               slo2ita=slo2ita
+                                               )
 
         random.shuffle(possible_answers)
 
-        #
-        # rnd_value = random.randrange(0, len(questions_to_ask))
-        #
-        # current_pos = questions_to_ask[rnd_value]
-        # del questions_to_ask[rnd_value]
-        #
-        # asked_questions.append(current_pos)
-
         print()
         print(f"item #{current_pos} - {len(asked_questions)}/{max_questions}")
-
-        # test_key = slo_dict_keys[current_pos]
-        # test_value = slo_dict_values[current_pos]
-        #
-        # possible_answers = find_random_answers(dict_slo, slo_dict_values, current_pos)
-        # possible_answers.append(slo_dict_values[current_pos].italiansko)
-        #
-        # random.shuffle(possible_answers)
 
         if slo2ita:
             print(f"cosa significa: '{current_question}' ?")
@@ -480,9 +322,6 @@ def start_tests(dict_slo, int_seed=0, slo2ita=True):
             print("?!?!?2")
 
             answer_pos = 100
-        # print(answer_pos)
-
-        # correct_answer = current_answer.italiansko
 
         try:
             user_answer = possible_answers[answer_pos]
@@ -499,9 +338,6 @@ def start_tests(dict_slo, int_seed=0, slo2ita=True):
             print(f"*** risposta corretta: {correct_answer}")
             wrong_answers.append(correct_answer)
 
-        # print(tests)
-        # print(values[pos])
-
         if answer_pos == -1:
             break
 
@@ -515,5 +351,4 @@ def start_tests(dict_slo, int_seed=0, slo2ita=True):
         print("***errori***")
         for pos in wrong_answers:
             print(pos)
-            # question = slo_dict_values[pos]
-            # print(question)
+
