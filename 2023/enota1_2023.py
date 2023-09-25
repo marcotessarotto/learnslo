@@ -1,7 +1,7 @@
-from utilities import start_tests_slo2ita, WebLink, AudioLink, start_tests_ita2slo
+from utilities import start_tests, WebLink, AudioLink
 
 from utilities import WordType, WordNote, PronNote, BookPage, Level, Item, process_dictionary, find_random_answers, \
-    start_tests_slo2ita, Gender
+    start_tests, Gender
 
 # sloveno, traduzione, tipo, note, unità
 
@@ -37,15 +37,17 @@ enota[1] = (
 
 
 def run_me():
+    dict_slo, dict_ita = process_dictionary(enota)
+
     print("1 - test da sloveno a italiano")
     print("2 - test da italiano a sloveno")
     data = input("risposta (q per uscire): ")
     if data is None or data == "q":
         return
     elif data == "1":
-        start_tests_slo2ita(enota, int_seed=None)
+        start_tests(dict_slo)
     elif data == "2":
-        start_tests_ita2slo(enota, int_seed=None)
+        start_tests(dict_ita, slo2ita=False)
     else:
         print("risposta non valida")
 

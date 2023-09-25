@@ -1,5 +1,5 @@
 from utilities import WordType, WordNote, PronNote, BookPage, Level, Item, process_dictionary, find_random_answers, \
-    start_tests_slo2ita
+    start_tests
 
 time_dict = {}
 
@@ -138,7 +138,7 @@ time_dict["extra"] = (
 
 
 def run_me():
-    start_tests_slo2ita(time_dict, int_seed=None)
+    start_tests(time_dict, int_seed=None)
 
 
 if __name__ == "__main__":
