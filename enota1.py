@@ -1,5 +1,5 @@
 from utilities import WordType, WordNote, PronNote, BookPage, Level, Item, process_dictionary, find_random_answers, \
-    start_tests, Gender
+    start_tests, Gender, WebLink, AudioLink
 
 # sloveno, traduzione, tipo, note, unità
 
@@ -244,7 +244,7 @@ enota[1] = (
     ("vi ste", "voi siete"),
     ("oni so", "loro sono"),
     ("one so", "esse sono"),
-    ("tudi", "anche"),
+    ("tudi", ("anche", "inoltre", "peraltro"), WebLink("https://it.glosbe.com/sl/it/tudi"), AudioLink("https://app.glosbe.com/audio/183515:0004896933")),
     ("gospa", "signora"),
     ("gospod", "signore"),
     ("Eva je študentka", "Eva è una studentessa"),
