@@ -101,7 +101,7 @@ verbs["biti examples"] = (
     ("a mi daš telefonsko številko, prosim?", "mi dai il numero di telefono, per favore?"),
     ("a mi daš naslov, prosim?", "mi dai l'indirizzo, per favore?"),
     ("a mi daš email, prosim?", "mi dai l'email, per favore?"),
-    ("koliko stane pica?", "quanto cosa la pizza?"),
+    ("koliko stane pica?", "quanto costa la pizza?"),
     ("kako se reče ...?", "come si dice ...?"),
     ("kaj je ...?", "cosa è ...?"),
     ("", ""),
