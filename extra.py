@@ -1,5 +1,5 @@
 from utilities import WordType, WordNote, PronNote, BookPage, Level, Item, process_dictionary, find_random_answers, \
-    start_tests, Gender
+    start_tests_slo2ita, Gender
 
 extra = {}
 
@@ -110,7 +110,7 @@ extra[1] = (
 
 
 def run_me():
-    start_tests(extra, int_seed=None)
+    start_tests_slo2ita(extra, int_seed=None)
 
 
 if __name__ == "__main__":

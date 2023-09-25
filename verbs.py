@@ -1,5 +1,5 @@
 from utilities import WordType, WordNote, PronNote, BookPage, Level, Item, process_dictionary, find_random_answers, \
-    start_tests
+    start_tests_slo2ita
 
 verbs = {}
 
@@ -464,7 +464,7 @@ verbs[2] = (
 
 
 def run_me():
-    start_tests(verbs, int_seed=None)
+    start_tests_slo2ita(verbs, int_seed=None)
 
 
 if __name__ == "__main__":

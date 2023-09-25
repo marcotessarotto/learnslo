@@ -1,7 +1,7 @@
-from utilities import start_tests, WebLink, AudioLink, start_tests_ita2slo
+from utilities import start_tests_slo2ita, WebLink, AudioLink, start_tests_ita2slo
 
 from utilities import WordType, WordNote, PronNote, BookPage, Level, Item, process_dictionary, find_random_answers, \
-    start_tests, Gender
+    start_tests_slo2ita, Gender
 
 # sloveno, traduzione, tipo, note, unità
 
@@ -30,7 +30,7 @@ enota[1] = (
     ("besedilo", "testo"),
     ("če ste spregledali", "se avete perso", WebLink("https://it.glosbe.com/sl/it/%C4%8De%20ste%20spregledali")),
     ("Ne najdem besed", "Non trovo le parole", WebLink("https://it.glosbe.com/sl/it/Ne%20najdem%20besed")),
-    ("novica", "notizia", WebLink("https://it.glosbe.com/sl/it/novica")), # "novità"
+    ("novica", ("notizia", "novità"), WebLink("https://it.glosbe.com/sl/it/novica")), # "novità"
     ("novice", "notiziario", WebLink("https://it.glosbe.com/sl/it/novice")),
     ("prenos", "trasmissione", WebLink("https://it.glosbe.com/sl/it/prenos")), # trasferimento, cessione
 )
@@ -43,7 +43,7 @@ def run_me():
     if data is None or data == "q":
         return
     elif data == "1":
-        start_tests(enota, int_seed=None)
+        start_tests_slo2ita(enota, int_seed=None)
     elif data == "2":
         start_tests_ita2slo(enota, int_seed=None)
     else:

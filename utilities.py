@@ -60,6 +60,18 @@ class AudioLink:
 
 class Item:
 
+    def __init__(self):
+        self.slovensko = None # is list of strings
+        self.italiansko = None # is a list of strings
+        self.category = None
+        self.bookpage = None
+        self.wordtype = None
+        self.level = None
+
+    # make Item comparable
+    def __eq__(self, other):
+        return self.slovensko == other.slovensko and self.italiansko == other.italiansko
+
     def __str__(self):
         result = f"slovensko='{self.slovensko}' italiano='{self.italiansko}'"
 
@@ -130,16 +142,31 @@ def process_dictionary(my_dict, dict_slo=None, dict_ita=None):
                 for i in row[1]:
                     new_row = list(row)
                     new_row[1] = i
-                    item = process_row(new_row)
+                    new_item = process_row(new_row)
 
-                    dict_slo[item.slovensko] = item
-                    dict_ita[item.italiansko] = item
+                    if new_item.slovensko not in dict_slo:
+                        dict_slo[new_item.slovensko] = [new_item]
+                    else:
+                        dict_slo[new_item.slovensko].append(new_item)
+
+                    if new_item.italiansko not in dict_ita:
+                        dict_ita[new_item.italiansko] = [new_item]
+                    else:
+                        dict_ita[new_item.italiansko].append(new_item)
+
                 continue
 
-            item = process_row(row)
+            new_item = process_row(row)
 
-            dict_slo[item.slovensko] = item
-            dict_ita[item.italiansko] = item
+            if new_item.slovensko not in dict_slo:
+                dict_slo[new_item.slovensko] = [new_item]
+            else:
+                dict_slo[new_item.slovensko].append(new_item)
+
+            if new_item.italiansko not in dict_ita:
+                dict_ita[new_item.italiansko] = [new_item]
+            else:
+                dict_ita[new_item.italiansko].append(new_item)
 
     return dict_slo, dict_ita
 
@@ -161,6 +188,8 @@ def find_random_answers(dict_slo, slo_dict_values, right_answer_pos: int, result
         slo_dict_values = list(dict_slo.values())
 
     right_answer = slo_dict_values[right_answer_pos]
+    # right_answer is a list; find a random element in the list
+    right_answer = random.choice(right_answer)
 
     used_positions = []
 
@@ -303,7 +332,7 @@ def start_tests_ita2slo(my_dictionary, int_seed=0):
             print(question)
 
 
-def start_tests(my_dictionary, int_seed=0):
+def start_tests_slo2ita(my_dictionary, int_seed=0):
     """
     Effettua il test:
     chiede all'utente di tradurre le parole dallo sloveno all'italiano scegliendo tra 5 possibili risposte (una sola è corretta)
@@ -312,11 +341,10 @@ def start_tests(my_dictionary, int_seed=0):
     :param int_seed:
     :return:
     """
-    # creare lista delle domande già fatte: ok
-    # creare lista delle domande sbagliate: ok
 
     dict_slo, dict_ita = process_dictionary(my_dictionary)
-    # len(dict_slo) == len(dict_ita)
+    # print(len(dict_slo))
+    # print(len(dict_ita))
 
     max_questions = len(dict_slo)
 
