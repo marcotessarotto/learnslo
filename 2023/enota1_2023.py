@@ -33,6 +33,34 @@ enota[1] = (
     ("novica", ("notizia", "novità"), WebLink("https://it.glosbe.com/sl/it/novica")), # "novità"
     ("novice", "notiziario", WebLink("https://it.glosbe.com/sl/it/novice")),
     ("prenos", "trasmissione", WebLink("https://it.glosbe.com/sl/it/prenos")), # trasferimento, cessione
+    # 20230926
+    ("denarnica", "portafoglio"),
+    ("denar", "denaro"),
+    ("kreditna kartica", "carta di credito"),
+    ("oprosti, je to tvoja denarnica?", "scusi, è il tuo portafoglio?"),
+    ("neurje", ("temporale", "tempesta")),
+    # https://www.rainews.it/tgr/fjk/articoli/2023/09/libija-neurje-daniel-povzrocil-3000-mrtvih-in-10000-pogresanih-f725fca7-fe65-47d6-8e65-70a4a784f814.html
+    ("nevihta", "temporale"),
+    ("neurje povzročilo mrtvih in pogrešanih", "la tempesta ha causato morti e dispersi"),
+    ("povzročiti", "causare"),
+    ("povzročil", "causato"),
+    ("pogrešani", "dispersi"),
+    ("pogrešan", "disperso"),
+    ("pogrešana", "dispersa"),
+    ("pogrešano", "disperso"),
+    ("pogrešana oseba", "persona dispersa"),
+    ("oseba", "persona"),
+    ("pogrešati", ("mancare", "perdere", "sentire la mancanza"), WebLink("https://it.glosbe.com/sl/it/pogre%C5%A1ati")),
+    ("pogrešam te", "mi manchi"),
+    ("pogrešam", "mi mancano"),
+    ("pogrešal", "mancato"),
+    ("pogrešala", "mancata"),
+    ("pogrešalo", "mancato"),
+    ("pogrešali", "mancato"),
+    ("ni za kaj", "non c'è di che"),
+    ("izvoli", ("prego", "ecco"), WebLink("https://it.glosbe.com/sl/it/izvoli")),
+
+
 )
 
 
