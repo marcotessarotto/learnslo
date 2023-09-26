@@ -7,8 +7,6 @@ from utilities import WordType, WordNote, PronNote, BookPage, Level, Item, proce
 
 enota = {}
 
-# TODO: supporto significati multipli
-# es: ("novica", ("notizia", "novità"))
 
 enota[1] = (
     ("enota", "unità"),
@@ -80,15 +78,15 @@ enota[1] = (
     ("rada", "piace"),
     ("veste", "sapete"),
     ("da imamo novega soseda", "abbiamo un nuovo vicino"),
-    ("Henrik igra bobne", ""),
+    ("Henrik igra bobne", "Henrik suona la batteria"),
     ("zakaj", "perché"),
     ("martin se uči slovenščine", "martin sta imparando lo sloveno"),
     ("pogovarjati", "parlare"), # dialogare, interagire
     ("odgovor", "risposta"),
     ("odgovoriti", "rispondere"),
     ("katere jezike govoriš?", "quali lingue parli?"),
-    ("", ""),
-    ("", ""),
+    ("delovni zvezek", "Quaderno di lavoro"),
+    ("ucbenik", "libro di testo"),
     ("", ""),
     ("", ""),
     ("", ""),
