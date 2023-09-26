@@ -233,6 +233,11 @@ def find_random_answers(dict_lang,
             skip = any(i.slovensko == random_answer.slovensko for i in result)
             if skip:
                 continue
+        else:
+            # if the answer is already in the list, skip it
+            skip = any(i.italiansko == random_answer.italiansko for i in result)
+            if skip:
+                continue
 
         result.append(random_answer)
 

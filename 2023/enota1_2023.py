@@ -68,7 +68,7 @@ enota[1] = (
     ("vi zdaj stanuje tukaj?", "adesso abitate qui?"),
     ("jaz zem soseda iz prvega nadstopja", "io sono il vicino del primo piano"),
     ("me veseli", "piacere"),
-    ("a bobne igrate"," suonate la batteria?"),
+    ("a bobne igrate", "suonate la batteria?"),
     ("veste, tukaj je ob desetih zvecer mir", "sapete, qui alle dieci di sera c'è silenzio"),
     ("tukaj", "qui"),
     ("seveda", ("certo", "ovviamente")),
