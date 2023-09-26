@@ -315,24 +315,34 @@ def start_tests(dict_lang, int_seed=0, slo2ita=True):
         for counter, i in enumerate(possible_answers):
             print(f"{chr(ord('a') + counter)} : {i.italiansko if slo2ita else i.slovensko}")
 
-        data = input("risposta (q per uscire): ")
-        if data is None or data == "q":
+        exit_while = False
+        user_answer = None
+
+        while 1:
+            data = input("risposta (q per uscire): ")
+            if len(data) == 0:
+                continue
+
+            if data is None or data == "q":
+                exit_while = True
+                break
+
+            number_of_questions += 1
+
+            try:
+                answer_pos = ord(data) - ord('a')
+            except TypeError:
+                continue
+
+            try:
+                user_answer = possible_answers[answer_pos]
+            except IndexError:
+                continue
+
             break
 
-        number_of_questions += 1
-
-        try:
-            answer_pos = ord(data) - ord('a')
-        except TypeError:
-            print("?!?!?2")
-
-            answer_pos = 100
-
-        try:
-            user_answer = possible_answers[answer_pos]
-        except IndexError:
-            print("?!?!?1")
-            user_answer = None
+        if exit_while:
+            break
 
         if correct_answer == user_answer:
             print("OK")
@@ -342,9 +352,6 @@ def start_tests(dict_lang, int_seed=0, slo2ita=True):
             print("NOT OK")
             print(f"*** risposta corretta: {correct_answer}")
             wrong_answers.append(correct_answer)
-
-        if answer_pos == -1:
-            break
 
     print("***finito!***")
 
