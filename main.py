@@ -4,10 +4,10 @@ import enota3
 import enota4
 import enota5
 import enota6
-import extra
-import my_numbers
-import time
-import verbs
+import enota_extra
+import enota_numbers
+import enota_time
+import enota_verbs
 
 while 1:
 
@@ -42,12 +42,12 @@ while 1:
     elif cmd == 'f':
         enota6.run_me()
     elif cmd == 'g':
-        extra.run_me()
+        enota_extra.run_me()
     elif cmd == 'h':
-        my_numbers.run_me()
+        enota_numbers.run_me()
     elif cmd == 'i':
-        time.run_me()
+        enota_time.run_me()
     elif cmd == 'l':
-        verbs.run_me()
+        enota_verbs.run_me()
     else:
         print("non ho capito la scelta!")
