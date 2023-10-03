@@ -13,6 +13,7 @@ class WordType(Enum):
     CONJUNCTION = 5
     NUMBER = 6
     NOUN = 7
+    ADJECTIVE = 8
 
 
 class WordNote:
@@ -291,26 +292,16 @@ def start_tests(dict_lang, int_seed=0, slo2ita=True, max_questions=0, number_of_
 
     # print("***tests***")
 
-    number_of_questions = 0
-    correct_answers = 0
-    current_pos = 0
-
-    asked_questions = []
-    wrong_answers = []
-
-    r = range(len(dict_lang))
-    # questions_to_ask = list(r)
+    list_of_questions_and_answers = []
 
     while dict_keys:
-        current_pos += 1
-
         # Choose a random item from the list slo_dict_keys
         current_question = random.choice(dict_keys)
 
         # Remove the chosen question from the list
         dict_keys.remove(current_question)
 
-        asked_questions.append(current_question)
+        # asked_questions.append(current_question)
 
         # choose random answer
         correct_answer = random.choice(dict_lang[current_question])
@@ -325,8 +316,18 @@ def start_tests(dict_lang, int_seed=0, slo2ita=True, max_questions=0, number_of_
 
         random.shuffle(possible_answers)
 
+        list_of_questions_and_answers.append((current_question, correct_answer, possible_answers))
+
+    wrong_answers = []
+    number_of_questions = 0
+    correct_answers = 0
+    current_pos = 0
+
+    for current_question, correct_answer, possible_answers in list_of_questions_and_answers:
+        current_pos += 1
+
         print()
-        print(f"item #{current_pos} - {len(asked_questions)}/{max_questions}")
+        print(f"domanda #{current_pos} / {max_questions}")
 
         if slo2ita:
             print(f"cosa significa: '{current_question}' ?")
@@ -341,10 +342,10 @@ def start_tests(dict_lang, int_seed=0, slo2ita=True, max_questions=0, number_of_
 
         while 1:
             data = input("risposta (q per uscire): ")
-            if len(data) == 0:
+            if data is None or len(data) == 0:
                 continue
 
-            if data is None or data == "q":
+            if data == "q":
                 exit_while = True
                 break
 
@@ -386,4 +387,3 @@ def start_tests(dict_lang, int_seed=0, slo2ita=True, max_questions=0, number_of_
         print("***errori***")
         for pos in wrong_answers:
             print(pos)
-
