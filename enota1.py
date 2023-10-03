@@ -128,6 +128,8 @@ enota[1] = (
     ("univerza", "università"),
     ("ura", "ora"),
     ("učitelj", "maestro"),
+    ("učiti se", "imparare"),
+    ("učiti", "insegnare"),
     ("voda", "acqua"),
     ("veterinar", "veterinario"),
     ("zdravnik", "medico"),
