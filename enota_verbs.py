@@ -1,5 +1,5 @@
 from utilities import WordType, WordNote, PronNote, BookPage, Level, Item, process_dictionary, find_random_answers, \
-    start_tests
+    start_tests, WebLink
 
 verbs = {}
 
@@ -120,6 +120,7 @@ verbs["biti examples"] = (
 
 
 verbs["brati"] = ( # leggere
+    ("brati", "leggere"),
     ("jaz berem", "io leggo", WordType.VERB),
     ("ti bereš", "tu leggi"),
     ("on/ona bere", "lui/lei legge"),
@@ -140,7 +141,20 @@ verbs["brati"] = ( # leggere
 )
 
 
+verbs["prihajati"] = (
+    ("prihajati", "arrivare", WebLink("https://it.glosbe.com/sl/it/prihajati")),
+    ("prihajam", "arrivo"),
+    ("prihajaš", "arrivi"),
+    ("prihaja", "arriva"),
+    ("prihajamo", "arriviamo"),
+    ("prihajate", "arrivate"),
+    ("prihajajo", "arrivano"),
+    ("", ""),
+)
+
+
 verbs["delati"] = (
+    ("delati", "lavorare", WebLink("https://it.glosbe.com/sl/it/delati")),
     ("jaz delam", "io lavoro/faccio"),
     ("ti delaš", "tu lavori"),
     ("on/ona dela", "lui/lei lavora"),
@@ -160,9 +174,44 @@ verbs["delati"] = (
     ("", ""),
 )
 
+verbs["povzročiti"] = (
+    # ("povzročiti", ("arrecare", "attribuire", "avere", "cagionare", "causare", "concedere", "creare", "dare", "essere",
+    #                 "fare", "fornire", "indurre", "ingenerare", "motivare", "occasionare", "preparare",
+    #                 "procurare", "produrre", "provocare", "recare", "rendere", "suscitare", "sviluppare")),
+    ("povzročiti", ("causare", "provocare"), WebLink("https://it.glosbe.com/sl/it/povzro%C4%8Diti")),
+    ("povzročim", "io causo"),
+    ("povzročiš", "causi"),
+    ("povzroči", "causa"),
+    ("povzročimo", "causiamo"),
+    ("povzročite", "causate"),
+    ("povzročijo", "causano"),
+    ("", ""),
+)
 
 
+verbs["vidite"] = (
+    ("videti", ("vedere", "capire", "guardare"), WebLink("https://it.glosbe.com/sl/it/videti")),
+    ("vidim", "vedo"),
+    ("vidiš", "vedi"),
+    ("vidi", "vede"),
+    ("vidimo", "vediamo"),
+    ("vidite", "vedete"),
+    ("vidijo", "vedono"),
+    ("ne vidim", "non vedo"),
+    ("ne vidiš", "non vedi"),
+    ("ne vidi", "non vede"),
+    ("ne vidimo", "non vediamo"),
+    ("ne vidite", "non vedete"),
+    ("ne vidijo", "non vedono"),
+    ("a/ali vidim?", "vedo?"),
+    ("a/ali vidiš?", "vedi?"),
+    ("a/ali vidi?", "vede?"),
+    ("a/ali vidimo?", "vediamo?"),
+    ("a/ali vidite?", "vedete?"),
+    ("a/ali vidijo?", "vedono?"),
+    ("", ""),
 
+)
 
 
 verbs["hoteti"] = (
@@ -187,6 +236,7 @@ verbs["hoteti"] = (
 
 
 verbs["imeti"] = (
+    ("imeti", "avere"),
     ("jaz imam", "io ho"),
     ("ti imaš", "tu hai"),
     ("on/ona ima", "lui/lei ha"),
@@ -220,6 +270,7 @@ verbs["imeti"] = (
 
 
 verbs["iti"] = (
+    ("iti", "andare"),
     ("grem", "vado"),
     ("greš", "vai"),
     ("gre", "va"),
@@ -250,6 +301,7 @@ verbs["iti"] = (
 )
 
 verbs["piti"] = (
+    ("piti", "bere"),
     ("pijem", "io bevo", WordType.VERB),
     ("piješ", "tu bevi", WordType.VERB),
     ("pije", "egli/lei beve", WordType.VERB),
@@ -269,6 +321,7 @@ verbs["piti"] = (
 
 
 verbs["PISATI"] = (
+    ("pisati", "scrivere"),
     ("jaz pišem", "io parlo"),
     ("ti pišeš", "tu parli"),
     ("on piše", "lui parla"),
