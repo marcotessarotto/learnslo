@@ -91,6 +91,13 @@ enota[1] = (
 
     ("zdaj", ("adesso", "d'ora in poi", "ora"), WebLink("https://it.glosbe.com/sl/it/zdaj")),
     ("jaz zem soseda iz prvega nadstopja", "io sono il vicino del primo piano"),
+    ("jaz sem sosed", "io sono il vicino"),
+    ("iz", "da", WebLink("https://it.glosbe.com/sl/it/iz")),
+
+    ("prvi", "primo", WebLink("https://it.glosbe.com/sl/it/prvi")),
+    ("prvo nadstropje", "primo piano", WebLink("https://it.glosbe.com/sl/it/prvo%20nadstropje")),
+    ("kavarna", ("caffetteria", "bar"), WebLink("https://it.glosbe.com/sl/it/kavarna")),
+
     ("me veseli", "piacere"),
     ("a bobne igrate", ("suonate la batteria?", "ma suoni la batteria")),
     ("veste, tukaj je ob desetih zvecer mir", "sapete, qui alle dieci di sera c'è silenzio"),
