@@ -374,10 +374,12 @@ def start_tests(dict_lang, int_seed=0, slo2ita=True, max_questions=0, number_of_
             print(f"*** risposta corretta: {correct_answer}")
             wrong_answers.append(correct_answer)
 
+    print()
     print("***finito!***")
 
     print(f"number_of_questions = {number_of_questions}")
     print(f"correct_answers = {correct_answers}")
+    print(f"ratio = {correct_answers / number_of_questions * 100:.2f}%")
 
     if wrong_answers:
         print()

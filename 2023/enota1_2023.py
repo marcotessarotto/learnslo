@@ -100,7 +100,7 @@ enota[1] = (
     ("jaz sem sosed", "io sono il vicino"),
     ("iz", "da", WebLink("https://it.glosbe.com/sl/it/iz")),
 
-    ("prvi", "primo", WebLink("https://it.glosbe.com/sl/it/prvi")),
+    ("prvi", "primo", WebLink("https://it.glosbe.com/sl/it/prvi"), AudioLink("https://app.glosbe.com/audio/166556:0002384029")),
     ("prvo nadstropje", "primo piano", WebLink("https://it.glosbe.com/sl/it/prvo%20nadstropje")),
     ("kavarna", ("caffetteria", "bar"), WebLink("https://it.glosbe.com/sl/it/kavarna")),
 
