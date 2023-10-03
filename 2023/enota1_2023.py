@@ -121,12 +121,21 @@ enota[1] = (
     ("stanujem", "io abito"),
     ("študirati", "studiare"),
     ("študiram", "io studio"),
+    ("živeti", "vivere"),
+    ("v živo", "dal vivo"),
+    ("živim", "io vivo"),
     ("", ""),
     ("", ""),
     ("", ""),
     ("", ""),
     ("", ""),
     ("", ""),
+    ("", ""),
+    ("hočeš", "tu vuoi"),
+    ("kaj hočeš študirati? ", "cosa vuoi studiare?"),
+    ("študiral je medicino", "ha studiato medicina"),
+
+
 
     ("kakšen glagol je to?", "che tipo di verbo è questo?"),
     ("osebna identiteta", "identità personale"),
@@ -149,7 +158,7 @@ enota[1] = (
     ("mir", ("silenzio", "pace", "tranquillità")),
     ("je ob desetih","è alle dieci"),
     ("rada imam mir", "mi piace la tranquillità"),
-    ("rada", "piace"),
+    ("rada", "a lei piace"),
     ("veste", "sapete"),
     ("da imamo novega soseda", "(che) abbiamo un nuovo vicino"),
     ("Henrik igra bobne", "Henrik suona la batteria"),
@@ -159,8 +168,8 @@ enota[1] = (
     ("zakaj me ne poslušaš?", "perché non mi ascolti?"),
     ("martin se uči slovenščine", "martin sta imparando lo sloveno"),
     ("on se uči", "sta imparando"),
-    ("", ""),
-    ("pogovarjati", "parlare"), # dialogare, interagire
+    ("govoriti", "parlare"),
+    ("pogovarjati", "parlare"), # dialogare, interagire  # ???
     ("odgovor", "risposta"),
     ("odgovoriti", "rispondere"),
     ("katere jezike govoriš?", "quali lingue parli?"),
@@ -253,15 +262,17 @@ enota[1] = (
 def run_me():
     dict_slo, dict_ita = process_dictionary(enota)
 
+    number_of_answers = 8
+
     print("1 - test da sloveno a italiano")
     print("2 - test da italiano a sloveno")
     data = input("risposta (q per uscire): ")
     if data is None or data == "q":
         return
     elif data == "1":
-        start_tests(dict_slo)
+        start_tests(dict_slo, number_of_answers=number_of_answers)
     elif data == "2":
-        start_tests(dict_ita, slo2ita=False)
+        start_tests(dict_ita, slo2ita=False, number_of_answers=number_of_answers)
     else:
         print("risposta non valida")
 
