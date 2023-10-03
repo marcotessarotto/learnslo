@@ -73,9 +73,9 @@ enota[1] = (
     ("nekdo prihaja", "qualcuno sta arrivando"),
     ("nekdo", "qualcuno"),
     ("prihajati", "arrivare"),
-    ("prihajam", "arrivo"),
-    ("prihajaš", "arrivi"),
-    ("prihaja", "arriva"),
+    ("prihajam", "io arrivo"),
+    ("prihajaš", "tu arrivi"),
+    ("prihaja", "arriva", WebLink("https://it.glosbe.com/sl/it/prihaja")),
 
     # slovenska beseda C Zivo 1b Sb, pag. 7
 
@@ -84,6 +84,7 @@ enota[1] = (
     ("kje živite?", "dove vivete?"),
     ("kje živiš?", "dove vivi?"),
     ("kje živiš zdaj?", "dove vivi adesso?"),
+    ("kje", "dove", WebLink("https://it.glosbe.com/sl/it/kje")),
     ("tukaj stanujem", "Abito qui"),
     ("tukaj živim", "Vivo qui"),
     ("tukaj živim zdaj", "Vivo qui adesso"),
@@ -100,10 +101,15 @@ enota[1] = (
     ("rada imam mir", "mi piace la tranquillità"),
     ("rada", "piace"),
     ("veste", "sapete"),
-    ("da imamo novega soseda", "abbiamo un nuovo vicino"),
+    ("da imamo novega soseda", "(che) abbiamo un nuovo vicino"),
     ("Henrik igra bobne", "Henrik suona la batteria"),
-    ("zakaj", "perché"),
+    ("zakaj", ("perché", "per quale motivo", "per quale ragione"), WebLink("https://it.glosbe.com/sl/it/zakaj")),
+    ("zakaj igra bobne?", "perché suona la batteria?"),
+    ("zakaj igraš bobne?", "perché suoni la batteria?"),
+    ("zakaj me ne poslušaš?", "perché non mi ascolti?"),
     ("martin se uči slovenščine", "martin sta imparando lo sloveno"),
+    ("on se uči", "sta imparando"),
+    ("", ""),
     ("pogovarjati", "parlare"), # dialogare, interagire
     ("odgovor", "risposta"),
     ("odgovoriti", "rispondere"),
