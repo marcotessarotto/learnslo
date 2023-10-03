@@ -114,6 +114,17 @@ def process_dictionary(my_dict, dict_slo=None, dict_ita=None):
             d[key].append(item)
 
     def process_row(row):
+        """
+        Processa una riga del dizionario
+        esempi:
+
+        ("slovar", "dizionario"),
+        ("", ""),
+        ("neurje", ("temporale", "tempesta")),
+
+        :param row:
+        :return:
+        """
         item = Item()
 
         for count, val in enumerate(row):
@@ -125,6 +136,8 @@ def process_dictionary(my_dict, dict_slo=None, dict_ita=None):
                 item.multiple_words = item.slovensko_num_words > 1
             elif count == 1:
                 item.italiansko = val.lower()
+                item.italiansko_num_words = len(val.split())
+                item.ita_multiple_words = item.italiansko_num_words > 1
             elif type(val) is BookPage:
                 # print("BookPage!")
                 item.bookpage = val.page
@@ -151,6 +164,8 @@ def process_dictionary(my_dict, dict_slo=None, dict_ita=None):
 
             if type(row[0]) is tuple or type(row[0]) is list:
                 for i in row[0]:
+                    if i == "":
+                        continue
                     new_row = list(row)
                     new_row[0] = i
                     new_item = process_row(new_row)
@@ -165,6 +180,8 @@ def process_dictionary(my_dict, dict_slo=None, dict_ita=None):
             # if row[1] is a tuple or a list, then expand to multiple rows
             if type(row[1]) is tuple or type(row[1]) is list:
                 for i in row[1]:
+                    if i == "":
+                        continue
                     new_row = list(row)
                     new_row[1] = i
                     new_item = process_row(new_row)
