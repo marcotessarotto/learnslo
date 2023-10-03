@@ -70,6 +70,12 @@ enota[1] = (
     ("Eno leto bo živel v Sloveniji", "Vivrà in Slovenia per un anno"),
     ("kaj je povedal Martin?", "cosa ha detto Martin?"), # pag. 7
 
+    ("povedal", ("detto", "raccontato")),
+    ("Kaj sem ti povedal?","Cosa ti ho detto?", AudioLink("https://app.glosbe.com/audio/166556:0002383245")),
+    ("povedati", "dire", WordType.VERB, WebLink("https://it.glosbe.com/sl/it/povedati"), AudioLink("https://app.glosbe.com/audio/166556:0002384100")),
+
+    ("to je enostavno povedati", "è facile da dire", AudioLink("https://app.glosbe.com/audio/166556:0002384100")),
+
     ("nekdo prihaja", "qualcuno sta arrivando"),
     ("nekdo", "qualcuno"),
     ("prihajati", "arrivare"),
@@ -108,7 +114,7 @@ enota[1] = (
     ("pišem se", "mi chiamo", ),
     ("podpisati se", "firmare", WordType.VERB),
     ("podpišem se", "io firmo"),
-    ("potrebovati", "avere bisogno di", WordType.VER),
+    ("potrebovati", "avere bisogno di", WordType.VERB),
     ("potrebujem", "io ho bisogno di"),
     ("roditi se", "nascere", WordType.VERB),
     ("rodim se", "io nasco"),
@@ -134,13 +140,38 @@ enota[1] = (
     ("hočeš", "tu vuoi"),
     ("kaj hočeš študirati? ", "cosa vuoi studiare?"),
     ("študiral je medicino", "ha studiato medicina"),
-
-
+    ("ime", "nome"),
+    ("priimek", "cognome"),
+    ("gospod", "signore"),
+    ("gospa", "signora"),
+    ("spol", "genere"),
+    ("moški", "uomo"),
+    ("ženski", "donna"),
+    ("datum rojstva", "data di nascita"),
+    ("kraj rojstva", "luogo di nascita"),
+    ("rojstni dan", "compleanno"),
+    ("naslov", "indirizzo"),
+    ("ulica", "via"),
+    ("hišna številka", "numero civico"),
+    ("poštna številka", "codice postale"),
+    ("kraj", ("posto", "luogo", "posizione")),
+    ("mesto", "città"),
+    ("država", "stato"),
+    ("naordnost", "nazionalità"),
+    ("poklic", "professione"),
+    ("služba", "lavoro"),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
+    ("", ""),
 
     ("kakšen glagol je to?", "che tipo di verbo è questo?"),
     ("osebna identiteta", "identità personale"),
     ("osebna", "personale"),
     ("osebni", "personali"),
+
 
     ("kakšna je tvoja osebna identiteta?", "qual è la tua identità personale?"),
     # ("oseba", "persona"),
