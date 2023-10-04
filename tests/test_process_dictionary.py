@@ -29,19 +29,18 @@ class TestProcessDictionary(unittest.TestCase):
 
         # Check the contents of the dictionaries
         for key, item in dict_slo.items():
-            self.assertEqual(item.slovensko, key)
-            self.assertTrue(isinstance(item, Item))
+            self.assertEqual(item[0].slovensko, key)
+            self.assertTrue(isinstance(item[0], Item))
             # Add more assertions based on the expected attributes of the item
 
-            print(item)
-
+            # print(item)
 
         for key, item in dict_ita.items():
-            self.assertEqual(item.italiansko, key)
-            self.assertTrue(isinstance(item, Item))
+            self.assertEqual(item[0].italiansko, key)
+            self.assertTrue(isinstance(item[0], Item))
             # Add more assertions based on the expected attributes of the item
 
-            print(item)
+            # print(item)
 
     def test_multiterms_dictionary(self):
         my_dict = {
@@ -58,15 +57,16 @@ class TestProcessDictionary(unittest.TestCase):
         self.assertTrue(dict_slo)
         self.assertTrue(dict_ita)
 
-        print(dict_slo)
-        print(dict_ita)
+        # print(dict_slo)
+        # print(dict_ita)
+        # print()
 
         for key, item in dict_slo.items():
-            self.assertEqual(item.slovensko, key)
-            self.assertTrue(isinstance(item, Item))
+            self.assertEqual(item[0].slovensko, key)
+            self.assertTrue(isinstance(item[0], Item))
             # Add more assertions based on the expected attributes of the item
 
-            print(item)
+            # print(item)
 
 
 

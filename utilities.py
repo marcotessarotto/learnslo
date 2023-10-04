@@ -53,10 +53,16 @@ class WebLink:
     def __init__(self, url):
         self.url = url
 
+    def __str__(self):
+        return f"url={self.url}"
+
 
 class AudioLink:
     def __init__(self, url):
         self.url = url
+
+    def __str__(self):
+        return f"url={self.url}"
 
 
 class Item:
@@ -69,6 +75,7 @@ class Item:
         self.wordtype = None
         self.level = None
         self.multiple_words = False
+        self.ita_multiple_words = False
 
     # make Item comparable
     def __eq__(self, other):
