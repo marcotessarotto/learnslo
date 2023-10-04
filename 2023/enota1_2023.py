@@ -41,7 +41,7 @@ enota[1] = (
     ("najdem", "trovo"),
     ("najti", "trovare", WordType.VERB),
     ("najdeš", "trovi"),
-    ("najde", "trova"),
+    ("najde", "lui trova"),
     ("najdemo", "troviamo"),
     ("najdete", "trovate"),
     ("najdejo", "trovano"),

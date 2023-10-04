@@ -268,40 +268,16 @@ def find_random_answers(dict_lang,
     return result
 
 
-def start_tests(dict_lang, int_seed=0, slo2ita=True, max_questions=0, number_of_answers=5):
-    """
-    Effettua il test:
-    chiede all'utente di tradurre le parole dallo sloveno all'italiano scegliendo tra 5 possibili risposte (una sola è corretta)
-
-    :param dict_lang: dizionario da utilizzare nel test
-    :param slo2ita: True se si sta facendo il test di traduzione dallo sloveno all'italiano
-    :param int_seed:
-    :param max_questions: numero massimo di domande da fare
-    :param number_of_answers: numero di risposte da mostrare per ogni domanda
-    :return:
-    """
-
-    if max_questions == 0:
-        max_questions = len(dict_lang)
+def prepare_list_of_questions_and_answers(dict_lang, slo2ita=True, max_questions=0, number_of_answers=5):
 
     print(f"max_questions = {max_questions}")
-
-    if int_seed != 0:
-        random.seed(a=int_seed)
-    else:
-        random.seed()
 
     # make a copy of dict_slo.keys() because we will remove items from it
     dict_keys = list(dict_lang.keys())
 
-    # Using list comprehension to concatenate all values into a single list
-    # slo_dict_values = [item for sublist in dict_slo.values() for item in sublist]
-
-    # print("***tests***")
-
     list_of_questions_and_answers = []
 
-    while dict_keys:
+    while dict_keys and len(list_of_questions_and_answers) < max_questions:
         # Choose a random item from the list slo_dict_keys
         current_question = random.choice(dict_keys)
 
@@ -324,6 +300,35 @@ def start_tests(dict_lang, int_seed=0, slo2ita=True, max_questions=0, number_of_
         random.shuffle(possible_answers)
 
         list_of_questions_and_answers.append((current_question, correct_answer, possible_answers))
+
+    return list_of_questions_and_answers
+
+
+def start_tests(dict_lang, int_seed=0, slo2ita=True, max_questions=0, number_of_answers=5):
+    """
+    Effettua il test:
+    chiede all'utente di tradurre le parole dallo sloveno all'italiano scegliendo tra 5 possibili risposte (una sola è corretta)
+
+    :param dict_lang: dizionario da utilizzare nel test
+    :param slo2ita: True se si sta facendo il test di traduzione dallo sloveno all'italiano
+    :param int_seed:
+    :param max_questions: numero massimo di domande da fare
+    :param number_of_answers: numero di risposte da mostrare per ogni domanda
+    :return:
+    """
+
+    if int_seed != 0:
+        random.seed(a=int_seed)
+    else:
+        random.seed()
+
+    if max_questions == 0:
+        max_questions = len(dict_lang)
+
+    list_of_questions_and_answers = prepare_list_of_questions_and_answers(dict_lang,
+                                                                           slo2ita=slo2ita,
+                                                                           max_questions=max_questions,
+                                                                           number_of_answers=number_of_answers)
 
     wrong_answers = []
     number_of_questions = 0
