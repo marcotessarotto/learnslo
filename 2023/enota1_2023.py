@@ -85,6 +85,7 @@ enota[1] = (
     ("on bere knjigo", "lui legge un libro"),
 
     ("Henrik prihaja iz finske", "Henrik viene dalla Finlandia"),
+    ("on je iz Finske", "lui viene dalla finlandia"),
     ("Eno leto bo živel v Sloveniji", "Vivrà in Slovenia per un anno"),
     ("kaj je povedal Martin?", "cosa ha detto Martin?"), # pag. 7
 
@@ -96,7 +97,7 @@ enota[1] = (
 
     ("nekdo prihaja", "qualcuno sta arrivando"),
     ("nekdo", "qualcuno"),
-    ("prihajati", "arrivare"),
+    ("prihajati", ("venire", "arrivare"), WebLink("https://it.glosbe.com/sl/it/prihajati")),
     ("prihajam", "io arrivo"),
     ("prihajaš", "tu arrivi"),
     ("prihaja", "arriva", WebLink("https://it.glosbe.com/sl/it/prihaja")),
@@ -118,7 +119,7 @@ enota[1] = (
     ("jaz sem sosed", "io sono il vicino"),
     ("iz", "da", WebLink("https://it.glosbe.com/sl/it/iz")),
 
-    ("prvi", "primo", WebLink("https://it.glosbe.com/sl/it/prvi"), AudioLink("https://app.glosbe.com/audio/166556:0002384029")),
+    ("prvi", ("primo", "capo", "principale"), WebLink("https://it.glosbe.com/sl/it/prvi"), AudioLink("https://app.glosbe.com/audio/166556:0002384029")),
     ("prvo nadstropje", "primo piano", WebLink("https://it.glosbe.com/sl/it/prvo%20nadstropje")),
     ("kavarna", ("caffetteria", "bar"), WebLink("https://it.glosbe.com/sl/it/kavarna")),
 
@@ -150,7 +151,7 @@ enota[1] = (
     ("živim", "io vivo"),
     ("mlad", "giovane", WordType.ADJECTIVE),
     ("star", "vecchio", WordType.ADJECTIVE),
-    ("zaposlen", ("impiegato", "occupato", "impegnato")),
+    ("zaposlen", ("impiegato", "occupato", "impegnato"), WebLink("https://it.glosbe.com/sl/it/zaposlen")),
     ("upokojenec", "pensionato"),
     ("upokojenka", "pensionata"),
     ("študent", "studente"),
@@ -168,7 +169,7 @@ enota[1] = (
     ("lasje", "capelli"),
     ("brada", "barba"),
     ("očala", "occhiali"),
-    ("", ""),
+    ("naš", ("nostro", "il nostro", ), WebLink("https://it.glosbe.com/sl/it/na%C5%A1")),
     ("", ""),
     ("", ""),
     ("", ""),
@@ -286,7 +287,7 @@ enota[1] = (
     ("zelo", "molto"),
     ("v katero nadstropje greva?", "a quale piano andiamo?"),
     ("na hodniku", "nel corridoio"),
-    ("", ""),
+    ("odgovor", ("risposta", "soluzione", "replica"), WebLink("https://it.glosbe.com/sl/it/odgovor")),
     ("", ""),
     ("", ""),
     ("", ""),
@@ -342,7 +343,7 @@ enota[1] = (
 def run_me():
     dict_slo, dict_ita = process_dictionary(enota)
 
-    number_of_answers = 8
+    number_of_answers = 10
 
     print("1 - test da sloveno a italiano")
     print("2 - test da italiano a sloveno")
