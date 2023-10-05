@@ -321,7 +321,7 @@ enota[1] = (
     ("mislim", "penso"),
     ("bomo dobili novega sodeda", "avremo un nuovo vicino"),
     ("sosed", "vicino"),
-    ("", ""),
+    ("bobni", "batteria", WebLink("https://it.glosbe.com/sl/it/bobni")),
     ("", ""),
     ("", ""),
     ("", ""),
