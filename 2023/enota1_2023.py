@@ -200,7 +200,7 @@ enota[1] = (
     ("naordnost", "nazionalità"),
     ("poklic", "professione"),
     ("služba", "lavoro"),
-    ("", ""),
+    ("zaklad", ("tesoro", "gioiello"), WebLink("https://it.glosbe.com/sl/it/zaklad")),
     ("", ""),
     ("", ""),
     ("", ""),
