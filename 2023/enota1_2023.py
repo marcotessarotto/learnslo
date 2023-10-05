@@ -319,7 +319,7 @@ enota[1] = (
     ("kakšni so vaši sodedi?", "come sono i vostri vicini?"),
     ("mislim", "penso"),
     ("bomo dobili novega sodeda", "avremo un nuovo vicino"),
-    ("", ""),
+    ("sosed", "vicino"),
     ("", ""),
     ("", ""),
     ("", ""),
