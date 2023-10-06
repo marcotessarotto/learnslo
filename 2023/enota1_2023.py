@@ -312,7 +312,7 @@ enota[1] = (
     ("poslušaite", "ascoltate"),
     ("dopolnite", "completate"),
     ("jaz študiram glasbo", "io studio musica"),
-    ("ste vi tudi glasbenik?", "anche voi siete musicisti?"),
+    ("ste vi tudi glasbenik?", "anche voi siete un musicista?"),
     ("tudi", "anche"),
     ("glasba", "musica", WebLink("https://it.glosbe.com/sl/it/glasba")),
     ("ko vidi bobne", "quando vede la batteria"),
