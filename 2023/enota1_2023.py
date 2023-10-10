@@ -338,15 +338,14 @@ enota[1] = (
     ("on začne", "lui inizia"),
     ("prihajati", "venire", WordType.VERB, WebLink("https://it.glosbe.com/sl/it/prihajati")), # https://app.glosbe.com/translation?id=-7449929076355427241
     ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
-    ("", ""),
+    ("zadovoljna", "soddisfatta"), # slonline
+    ("majhnem", "piccolo"),
+    ("zadovoljen", "soddisfatto"),
+    ("čestitke", "congratulazioni"),
+    ("sodelavec", "un collega"),
+    ("sodelavka", "una collega"),
+    ("sodelavce", "i colleghi"), # maschile
+    ("vaje za besedila", "esercizi per i testi"),
     ("", ""),
     ("", ""),
     ("", ""),
