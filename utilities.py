@@ -66,16 +66,35 @@ class AudioLink:
 
 
 class Item:
+    """
+    Represents a language learning item with Slovenian and Italian translations.
+
+    This class stores vocabulary items, phrases, or sentences along with their
+    translations and associated metadata like word type, difficulty level,
+    and reference information.
+
+    Attributes:
+        slovensko (list of str or None): Slovenian word(s) or phrase(s)
+        italiansko (list of str or None): Italian word(s) or phrase(s)
+        category (str or None): Category classification for the item
+        bookpage (BookPage or None): Reference to book page where item appears
+        wordtype (WordType or None): Type of word (noun, verb, adjective, etc.)
+        level (Level or None): Difficulty level (easy, medium, difficult)
+        multiple_words (bool): True if Slovenian contains multiple words
+        ita_multiple_words (bool): True if Italian contains multiple words
+        is_question (bool): True if the item represents a question
+    """
 
     def __init__(self):
-        self.slovensko = None  # is list of strings
-        self.italiansko = None  # is a list of strings
+        self.slovensko = None  # list of strings
+        self.italiansko = None  # list of strings
         self.category = None
         self.bookpage = None
         self.wordtype = None
         self.level = None
         self.multiple_words = False
         self.ita_multiple_words = False
+        self.is_question = False
 
     # make Item comparable
     def __eq__(self, other):
@@ -142,6 +161,7 @@ def process_dictionary(my_dict, dict_slo=None, dict_ita=None):
                 item.slovensko_num_words = len(val.split())
                 # multiple_words is true if slovensko has more than one word
                 item.multiple_words = item.slovensko_num_words > 1
+                item.is_question = item.slovensko.endswith("?")
             elif count == 1:
                 item.italiansko = val.lower()
                 item.italiansko_num_words = len(val.split())
@@ -210,6 +230,7 @@ def find_random_answers(dict_lang,
                         answers,
                         current_question: str,
                         current_answer: Item,
+                        questions_list=None,
                         number_of_answers=5,
                         slo2ita=True):
     """
@@ -228,8 +249,12 @@ def find_random_answers(dict_lang,
     loop_counter = 0
 
     keys_to_select_from = list(dict_lang.keys())
+
     # remove current_question from the list
     keys_to_select_from.remove(current_question)
+
+    # if current_answer.is_question:
+    #     # find at least 2 other questions
 
     while len(result) < number_of_answers:
 
@@ -273,7 +298,11 @@ def prepare_list_of_questions_and_answers(dict_lang, slo2ita=True, max_questions
     print(f"max_questions = {max_questions}")
 
     # make a copy of dict_slo.keys() because we will remove items from it
-    dict_keys = list(dict_lang.keys())
+    dict_keys = list(dict_lang.keys())    
+
+    questions_list = [item for item_list in dict_lang.values() for item in item_list if item.is_question]
+
+    print(f"len(questions_list) = {len(questions_list)}")
 
     list_of_questions_and_answers = []
 
@@ -293,6 +322,7 @@ def prepare_list_of_questions_and_answers(dict_lang, slo2ita=True, max_questions
                                                answers=[correct_answer],
                                                current_question=current_question,
                                                current_answer=correct_answer,
+                                               questions_list=questions_list,
                                                slo2ita=slo2ita,
                                                number_of_answers=number_of_answers
                                                )
