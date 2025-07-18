@@ -197,6 +197,8 @@ enota[1] = (
     ("kaj počneš v prostem času?", "cosa fai nel tuo tempo libero?"),
     ("študiram tehniko", "studio ingegneria"),
     ("poklic", "professione"),
+    ("sošolec", "compagno di classe"),
+    ("sošolka", "compagna di classe"),
     ("od kod", "da dove"),
     ("kaj", "che cosa"),
     ("ti si iz Avstrije", "tu vieni dall'Austria"),
