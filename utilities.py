@@ -17,7 +17,7 @@ Python: 3.7+ (requires dataclasses)
 
 from __future__ import annotations
 from enum import Enum
-from typing import Optional, List, Dict, Tuple, Union, Any
+from typing import Optional, List, Dict, Tuple, Union
 from dataclasses import dataclass, field
 import random
 
@@ -190,7 +190,7 @@ class Item:
         level: Difficulty level for progressive learning
         gender: Grammatical gender (important for Slovenian)
         weblink: External reference link
-        multiple_words: Auto-computed flag for multi-word expressions
+        slo_multiple_words: Auto-computed flag for multi-word expressions
         ita_multiple_words: Auto-computed flag for Italian multi-word expressions
         is_question: Auto-detected flag for question sentences
         slovensko_num_words: Auto-computed word count for Slovenian
@@ -510,11 +510,6 @@ def find_random_answers(
     Returns:
         List of Item objects with correct answer and wrong answers
 
-    Example:
-        >>> # For question "zdravo" -> "ciao"
-        >>> answers = find_random_answers(dict_slo, "zdravo", correct_item, 4)
-        >>> len(answers)  # 4 total answers
-        >>> correct_item in answers  # True
     """
     # Start with correct answer
     answers = [current_answer]
