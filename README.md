@@ -8,7 +8,7 @@ the program asks user to choose among the correct italian translation of sloveni
 
 these program can be more useful if used while studying this book:
 
-https://books.google.it/books?id=qtO7jwEACAAJ&hl=it&source=gbs_ViewAPI&redir_esc=y
+https://centerslo.si/en/books/textbooks-and-handbooks/beginner-level/slovenscina-ekspres-1/
 
 
 also useful:
