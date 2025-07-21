@@ -273,6 +273,16 @@ def find_random_answers(
             random_key = random.choice(available_keys)
             random_answer = random.choice(dict_lang[random_key])
 
+            # find other questions
+            if current_answer.is_question:
+                if not random_answer.is_question and attempts < max_attempts/10:
+                    continue
+
+            # find other non questions
+            if not current_answer.is_question:
+                if random_answer.is_question and attempts < max_attempts/10:
+                    continue
+
             # Skip if word count doesn't match
             if random_answer.slo_multiple_words != current_answer.slo_multiple_words:
                 continue
