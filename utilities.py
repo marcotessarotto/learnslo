@@ -543,8 +543,13 @@ def find_random_answers(
 
             # Ensure structural similarity (word count matching)
             # This makes single-word questions have single-word wrong answers
-            if random_answer.slo_multiple_words != current_answer.slo_multiple_words and attempts < max_attempts/5:
-                continue
+            if not current_answer.is_question:
+                if not slo2ita:
+                    if random_answer.slo_multiple_words != current_answer.slo_multiple_words and attempts < max_attempts/5:
+                        continue
+                else:
+                    if random_answer.ita_multiple_words != current_answer.ita_multiple_words and attempts < max_attempts/5:
+                        continue
 
             # Skip if this answer is already selected
             if random_answer in answers:
