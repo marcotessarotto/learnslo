@@ -45,6 +45,12 @@ class WordType(Enum):
     ADJECTIVE = 8  # Descriptive words (lep, velik, dober)
 
 
+class SentenceCategory(Enum):
+    NOP = 0,
+    INTERROGATIVE = 1,
+    SENTENCE = 2,
+
+
 class Level(Enum):
     """
     Difficulty levels for vocabulary items.
@@ -213,6 +219,7 @@ class Item:
 
     # Linguistic metadata
     wordtype: Optional[WordType] = None
+    sentence_category: Optional[SentenceCategory] = None
     level: Optional[Level] = None
     gender: Optional[Gender] = None
 
@@ -292,6 +299,8 @@ class Item:
             elif isinstance(val, WordType):
                 # Direct assignment of grammatical type
                 kwargs['wordtype'] = val
+            elif isinstance(val, SentenceCategory):
+                kwargs['sentence_category'] = val
             elif isinstance(val, Level):
                 # Direct assignment of difficulty level
                 kwargs['level'] = val
@@ -882,3 +891,19 @@ def prepare_list_of_questions_and_answers(
     """
     quiz = LanguageQuiz(dict_lang, 0)
     return quiz.prepare_questions(slo2ita, max_questions, number_of_answers)
+
+
+def generic_run_me(enota_dict):
+    dict_slo, dict_ita = process_dictionary(enota_dict)
+
+    print("1 - test da sloveno a italiano")
+    print("2 - test da italiano a sloveno")
+    data = input("risposta (q per uscire): ")
+    if data is None or data == "q":
+        return
+    elif data == "1":
+        start_tests(dict_slo)
+    elif data == "2":
+        start_tests(dict_ita, slo2ita=False)
+    else:
+        print("risposta non valida")

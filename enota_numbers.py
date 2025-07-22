@@ -1,4 +1,4 @@
-
+from utilities import generic_run_me
 
 enota = dict()
 
@@ -117,3 +117,6 @@ enota["številke"] = (
 
 
 )
+
+if __name__ == "__main__":
+    generic_run_me(enota)
