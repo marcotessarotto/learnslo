@@ -259,6 +259,32 @@ class Item:
             self.italiansko_num_words = len(self.italiansko.split())
             self.ita_multiple_words = self.italiansko_num_words > 1
 
+        if self.is_question and self.sentence_category is None:
+            self.sentence_category = SentenceCategory.INTERROGATIVE
+
+        # Register this instance for class-level tracking
+        Item._all_instances.append(self)
+
+    @classmethod
+    def get_all_questions(cls) -> List['Item']:
+        """
+        Return all Item instances where is_question is True.
+
+        This method searches through all created Item instances and returns
+        only those that have been identified as questions (sentences ending with '?').
+
+        Returns:
+            List of Item objects where is_question is True
+
+        Example:
+            >>> item1 = Item(slovensko="kako si?", italiansko="come stai?")
+            >>> item2 = Item(slovensko="zdravo", italiansko="ciao")
+            >>> questions = Item.get_all_questions()
+            >>> print(len(questions))  # 1
+            >>> print(questions[0].slovensko)  # kako si?
+        """
+        return [item for item in cls._all_instances if item.is_question]
+
     @classmethod
     def from_row(cls, row: Tuple, category: str) -> 'Item':
         """
@@ -328,7 +354,7 @@ class Item:
         result = f"slovensko='{self.slovensko}' italiano='{self.italiansko}'"
 
         # Add optional metadata if present
-        optional_attrs = ['bookpage', 'wordtype', 'level', 'gender', 'weblink']
+        optional_attrs = ['bookpage', 'wordtype', 'sentence_category', 'level', 'gender', 'weblink']
         for attr in optional_attrs:
             value = getattr(self, attr, None)
             if value is not None:
@@ -336,6 +362,8 @@ class Item:
 
         return result
 
+# Initialize the class variable after the class definition
+Item._all_instances = []
 
 # =============================================================================
 # DICTIONARY PROCESSING FUNCTIONS  
@@ -898,12 +926,18 @@ def generic_run_me(enota_dict):
 
     print("1 - test da sloveno a italiano")
     print("2 - test da italiano a sloveno")
-    data = input("risposta (q per uscire): ")
+    data = input("risposta (q per uscire, s per statistiche): ")
     if data is None or data == "q":
         return
     elif data == "1":
         start_tests(dict_slo)
     elif data == "2":
         start_tests(dict_ita, slo2ita=False)
+    elif data == "s":
+        print(f"numero di istanze di Item: {len(dict_slo)}")
+        # how many questions are there?
+        questions = Item.get_all_questions()
+
+        print(f"numero di domande: {len(questions)}")
     else:
         print("risposta non valida")

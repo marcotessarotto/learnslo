@@ -1,5 +1,5 @@
-from utilities import WordType, WordNote, PronNote, BookPage, Level, Item, process_dictionary, find_random_answers, \
-    start_tests, Gender, WebLink, AudioLink, generic_run_me
+from utilities import WordType, WordNote, PronNote, BookPage, Level, \
+    Gender, WebLink, AudioLink, generic_run_me
 
 # sloveno, traduzione, tipo, note, unità
 
@@ -297,6 +297,7 @@ enota["enota: dober dan"] = (
     ("učenje", "apprendimento", WordType.NOUN),
     ("začetnica", "iniziale", WordType.ADJECTIVE),
     ("slovenščina", "sloveno", WordType.NOUN), # lingua slovena
+    ("morje", "mare", WordType.NOUN)
 )
 
 
