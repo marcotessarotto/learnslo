@@ -6,7 +6,7 @@ enota = {}
 # č š ž
 
 
-enota[6] = (
+enota["enota 6"] = (
     ("in", "e"),
     ("kaj delas, ko si na morju?", ""),
     ("pijem toplo cokolado", ""),

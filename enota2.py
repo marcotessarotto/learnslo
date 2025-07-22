@@ -3,7 +3,7 @@ from utilities import WordType, WordNote, PronNote, BookPage, Level, Item, proce
 
 enota = {}
 
-enota[2] = (
+enota["enota 2"] = (
     ("družina", "famiglia"),
     ("oče", "padre"),
     ("mama", "madre"),

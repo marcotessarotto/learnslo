@@ -7,7 +7,7 @@ extra = {}
 
 
 
-extra[1] = (
+extra["extra"] = (
     ("Kako ti je ime?", "Come è il tuo nome?"),
     ("Kako se reče?", "Come si dice?"),
     ("Kako se piše?", "Come si scrive?"),

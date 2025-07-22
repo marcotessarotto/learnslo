@@ -5,22 +5,22 @@ from utilities import WordType, WordNote, PronNote, BookPage, Level, Item, proce
 
 enota = {}
 
-enota[1] = (
+enota["enota: dober dan"] = (
     ("enota", "unità"),
     ("dober dan", "buongiorno", BookPage(7)),
     ("in", "e", WordType.CONJUNCTION, Level.EASY),
     ("črkujte", "sillabare", WordType.VERB, Level.DIFFICULT),
-    ("dopolnite", "completate", WordType.VERB, Level.DIFFICULT),
-    ("napišite", "scrivete", WordType.VERB, Level.DIFFICULT),
-    ("odgovorite", "rispondete", WordType.VERB, Level.DIFFICULT),
-    ("poslušajte", "ascoltate", WordType.VERB, Level.DIFFICULT),
-    ("ponovite", "ripetete", WordType.VERB, Level.DIFFICULT),
+    ("dopolnite", "completare", WordType.VERB, Level.DIFFICULT),
+    ("napišite", "scrivere", WordType.VERB, Level.DIFFICULT),
+    ("odgovorite", "rispondere", WordType.VERB, Level.DIFFICULT),
+    ("poslušajte", "ascoltare", WordType.VERB, Level.DIFFICULT),
+    ("ponovite", "ripetere", WordType.VERB, Level.DIFFICULT),
     ("ponavljanje", "ripetizione", WordType.NOUN, Level.DIFFICULT),
-    ("preberite", "leggete", WordType.VERB, Level.DIFFICULT),
+    ("preberite", "leggere", WordType.VERB, Level.DIFFICULT),
     ("sestavite besede", "compilate le parole", WordType.VERB, Level.DIFFICULT),  # ???
     ("vprašajte in odgovorite", "chiedete e rispondete", WordType.VERB, Level.DIFFICULT),
     ("vprašajte", "chiedete", WordType.VERB, Level.DIFFICULT),
-    ("vstavite", "inserite", WordType.VERB, Level.DIFFICULT),
+    ("vstavite", "inserire", WordType.VERB, Level.DIFFICULT),
     ("besedišče", "vocabolario"),
     ("beseda", "parola"),
     ("besede", "parole"),
@@ -28,7 +28,7 @@ enota[1] = (
     ("eno črko lahko uporabite večkrat", "puoi usare una lettera più di una volta"),
     ("eno črko", "una lettera"),
     ("lahko", "può"),
-    ("uporabite", "usate"),
+    ("uporabite", "usare"),
     ("lahko sedim?", "posso sedere?", AudioLink("https://app.glosbe.com/audio/183515:0004895993")),
     ("lahko vstanem?", "posso alzarmi?", ),
     ("lahko grem?", "posso andare?", ),
@@ -51,7 +51,6 @@ enota[1] = (
     ("jaz sem Marco", "io sono Marco", WordType.SENTENCE),
     ("me veseli!", "piacere", WordType.SENTENCE),
     ("živjo", "ciao"),
-    ("vstative", "inserite", WordType.VERB),
     ("adijo", "ciao"),
     ("dober večer", "buonasera"),
     ("lahko noč", "buona notte"),
@@ -135,6 +134,7 @@ enota[1] = (
     ("zdravnik", "medico"),
     ("žirafa", "giraffa"),
     ("kaj je ...?", "cosa è ...?"),
+    ("Kaj to pomeni?", "Cosa significa questo?", ),
     ("kako se reče ...?", "come si dice ...?"),
     ("oprostite", "mi scusi"),
     ("oprostite, ne razumem", "mi scusi, non capisco"),
@@ -165,7 +165,7 @@ enota[1] = (
     ("a mi daš telefonsko številko, prosim?", "mi dai il numero di telefono, per favore?"), # telefonsko številko: accusativo
     ("moja telefonska številka je ...", "il mio numero di telefono è ..."),
     ("koliko", "quanto"),
-    ("koliko si star/a?", "quanti anni hai (quanto sei vecchio)?"),
+    ("koliko si star/a?", "quanti anni hai?"), #  (quanto sei vecchio)
     ("star/a sem oseminštirideset let", "io ho 48 anni"),
     ("leta", "anni"),
     ("koliko stane pica?", "quanto cosa la pizza?"),
@@ -231,11 +231,12 @@ enota[1] = (
     ("ampak zdaj ne delam", "ma ora non lavoro"),
     ("zdaj", "ora"),
     ("ime", "nome"),  # IDENTITETA
+
     ("priimek", "cognome"),
     ("jezik", "linguaggio"),
     ("država", "stato"),
     ("kako ti je ime?", "quale è il tuo nome?"),
-    ("kako se pišeš?", "quale è il tuo cognome? ('come ti cognomi')"),
+    ("kako se pišeš?", "quale è il tuo cognome?"), #  'come ti cognomi'
     ("kolega", "il collega"),
     ("kolegica", "la collega"),
     ("neformalno", "non formale/informale"),
@@ -245,7 +246,7 @@ enota[1] = (
     ("od kod ste?", "(formale) da dove viene/di dove è?"),
     ("kaj ste po poklicu?", "(formale) cosa fa di mestiere?"),
     ("koliko ste stari?", "(formale) quanti anni ha?"),
-    ("katere jezike govorite", "(formale) quali lingue parlate?"),
+    ("katere jezike govorite?", "(formale) quali lingue parlate?"),
     ("glagol", "verbo"),
     ("biti", "verbo essere"),
     ("jaz sem", "io sono"),  # GLAGOL BITI
@@ -295,6 +296,7 @@ enota[1] = (
     ("učbenik", "libro di testo"),
     ("učenje", "apprendimento", WordType.NOUN),
     ("začetnica", "iniziale", WordType.ADJECTIVE),
+    ("slovenščina", "sloveno", WordType.NOUN), # lingua slovena
 )
 
 

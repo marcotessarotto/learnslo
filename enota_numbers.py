@@ -2,7 +2,7 @@
 
 enota = dict()
 
-enota[0] = (
+enota["številke"] = (
     ("nič", "0", ),
     ("ena", "1", ),
     ("dve", "2", ),

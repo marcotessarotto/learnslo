@@ -5,7 +5,7 @@ enota = {}
 
 # č š ž
 
-enota[5] = (
+enota["enota 5"] = (
 
     ("kakšno pico imate radi?", "che tipo di pizza vi piace?"),
     ("kakšno pico imaš rad/a?", "che tipo di pizza ti piace?"),
