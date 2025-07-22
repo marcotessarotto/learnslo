@@ -264,7 +264,7 @@ enota[1] = (
 
 
     ("delovni zvezek", "Quaderno di lavoro"),
-    ("ucbenik", "libro di testo"),
+    ("učbenik", "libro di testo"),
     ("otrok", "bambino"),
     ("sin", "figlio"),
     ("hčerka", "figlia"),

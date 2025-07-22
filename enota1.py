@@ -292,6 +292,9 @@ enota[1] = (
     ("a ti govoriš slovensko?", "tu parli sloveno?"),
     ("mobitel (m)", "telefono cellulare", Gender.MALE),
     ("starost", "età"),
+    ("učbenik", "libro di testo"),
+    ("učenje", "apprendimento", WordType.NOUN),
+    ("začetnica", "iniziale", WordType.ADJECTIVE),
 )
 
 

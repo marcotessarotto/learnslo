@@ -41,7 +41,7 @@ class WordType(Enum):
     PRONOUN = 4  # Pronouns (jaz, ti, kdo, kaj)
     CONJUNCTION = 5  # Connecting words (in, ampak, ker)
     NUMBER = 6  # Numerical values (ena, dve, tri)
-    NOUN = 7  # Objects, people, concepts (hiša, človek)
+    NOUN = 7  # Objects, people, concepts (hiša, človek) [sostantivo]
     ADJECTIVE = 8  # Descriptive words (lep, velik, dober)
 
 
