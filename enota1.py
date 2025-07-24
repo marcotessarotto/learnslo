@@ -178,7 +178,7 @@ enota["enota: dober dan"] = (
     ("a mi daš email, prosim?", "mi dai l'email, per favore?"),
     ("pika", ". (punto)"),
     ("afna", "@"),
-    ("minus", "-"),
+    ("minus", "segno meno"),
     ("_ črtica spodaj", "linetta sotto"),
     ("od kod si?", "di dove sei/da dove vieni?"),
     ("kdo je to?", "chi è questo?"),
@@ -297,7 +297,8 @@ enota["enota: dober dan"] = (
     ("učenje", "apprendimento", WordType.NOUN),
     ("začetnica", "iniziale", WordType.ADJECTIVE),
     ("slovenščina", "sloveno", WordType.NOUN), # lingua slovena
-    ("morje", "mare", WordType.NOUN)
+    ("morje", "mare", WordType.NOUN),
+    ("jaz","io"),
 )
 
 
