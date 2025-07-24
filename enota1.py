@@ -291,7 +291,7 @@ enota["enota: dober dan"] = (
     ("oni govorijo", "loro parlano"),
     ("one govorijo", "esse parlano"),
     ("a ti govoriš slovensko?", "tu parli sloveno?"),
-    ("mobitel (m)", "telefono cellulare", Gender.MALE),
+    ("mobilni telefon", "telefono cellulare", Gender.MALE),
     ("starost", "età"),
     ("učbenik", "libro di testo"),
     ("učenje", "apprendimento", WordType.NOUN),
@@ -299,6 +299,10 @@ enota["enota: dober dan"] = (
     ("slovenščina", "sloveno", WordType.NOUN), # lingua slovena
     ("morje", "mare", WordType.NOUN),
     ("jaz","io"),
+    ("vsi", "tutti"),
+    ("vse", "tutte"),
+    ("prosti čas", "tempo libero"),
+    ("čas", "tempo"),
 )
 
 

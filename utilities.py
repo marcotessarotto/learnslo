@@ -751,13 +751,13 @@ class LanguageQuiz:
 
         # Execute quiz question by question
         for current_pos, (current_question, correct_answer, possible_answers) in enumerate(questions_and_answers, 1):
-            print(f"\nQuestion #{current_pos} / {len(questions_and_answers)}")
+            print(f"\nQuiz #{current_pos} / {len(questions_and_answers)}")
 
             # Display question based on translation direction
             if slo2ita:
-                print(f"What does '{current_question}' mean?")
+                print(f"Cosa significa '{current_question}' ?")
             else:
-                print(f"How do you translate '{current_question}'?")
+                print(f"Cosa significa '{current_question}' ?")
 
             # Display multiple choice options
             for counter, answer in enumerate(possible_answers):
