@@ -232,6 +232,7 @@ class Item:
     is_question: bool = field(init=False, default=False)
     slovensko_num_words: int = field(init=False, default=0)
     italiansko_num_words: int = field(init=False, default=0)
+    ends_with_ite: bool = field(init=False, default=False)
 
     def __post_init__(self):
         """
@@ -252,6 +253,7 @@ class Item:
             self.slovensko_num_words = len(self.slovensko.split())
             self.slo_multiple_words = self.slovensko_num_words > 1
             self.is_question = self.slovensko.endswith("?")
+            self.ends_with_ite = True if self.slovensko.endswith("ite") else False
 
         # Process Italian text  
         if self.italiansko:
@@ -568,6 +570,10 @@ def find_random_answers(
                 if not random_answer.is_question and attempts < max_attempts/5:
                     continue
 
+            if current_answer.ends_with_ite:
+                if not random_answer.ends_with_ite and attempts < max_attempts/3:
+                    continue
+
             # find other non questions
             if not current_answer.is_question:
                 if random_answer.is_question and attempts < max_attempts/5:
@@ -701,7 +707,7 @@ class LanguageQuiz:
             # (some questions may have multiple correct answers)
             correct_answer = random.choice(self.dict_lang[current_question])
 
-            # Generate multiple choice options including correct answer
+            # Generate multiple choice options including the correct answer
             possible_answers = find_random_answers(
                 self.dict_lang,
                 current_question,
