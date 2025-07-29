@@ -180,7 +180,7 @@ enota["enota: dober dan"] = (
     ("pika", ". (punto)"),
     ("afna", "@"),
     ("minus", "segno meno"),
-    ("_ črtica spodaj", "linetta sotto"),
+    ("črtica spodaj", "linetta sotto"),
     ("od kod si?", "di dove sei/da dove vieni?"),
     ("kdo je to?", "chi è questo?"),
     ("kdo si?", "chi sei tu?"),
