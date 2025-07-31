@@ -82,6 +82,14 @@ class Gender(Enum):
 # =============================================================================
 
 @dataclass
+class QuestionGroup:
+    """
+    group together (loosely) Items so that when building questions, these can be choosen together
+    """
+    id: str
+
+
+@dataclass
 class WordNote:
     """
     Additional textual notes about a vocabulary item.
