@@ -242,6 +242,8 @@ class Item:
     italiansko_num_words: int = field(init=False, default=0)
     ends_with_ite: bool = field(init=False, default=False)
 
+    question_groups: Optional[list] = field(init=False, default_factory=list)
+
     def __post_init__(self):
         """
         Post-initialization processing to compute linguistic features.
@@ -319,7 +321,7 @@ class Item:
             >>> print(item.wordtype)  # WordType.SENTENCE
         """
         # Initialize with category
-        kwargs = {'category': category}
+        kwargs = {'category': category, 'question_groups': []}
 
         # Process each element in the tuple
         for count, val in enumerate(row):
@@ -346,6 +348,8 @@ class Item:
             elif isinstance(val, WebLink):
                 # Direct assignment of web reference
                 kwargs['weblink'] = val
+            elif isinstance(val, QuestionGroup):
+                kwargs['question_groups'].append(val)
             # Note: AudioLink, WordNote, PronNote could be added here
             # as additional metadata fields if needed
 
