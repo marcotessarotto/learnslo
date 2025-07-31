@@ -23,7 +23,7 @@ enota["enota: dober dan"] = (
     ("vstavite", "inserire", WordType.VERB, Level.DIFFICULT),
     ("preberite in dopolnite", "leggere e completare", WordType.VERB, Level.DIFFICULT),
     ("poslušajte in ponovite", "ascoltare e ripetere", WordType.VERB, Level.DIFFICULT),
-    ("poslušajte in napišite pet besed", "scrivere cinque parole", WordType.VERB, Level.DIFFICULT),
+    ("poslušajte in napišite pet besed", "ascolta e scrivi cinque parole", WordType.VERB, Level.DIFFICULT),
     ("uporabljam avto", "io uso l'auto"),
     ("besedišče", "vocabolario"),
     ("beseda", "parola"),
