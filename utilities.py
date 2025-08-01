@@ -999,7 +999,7 @@ def generic_run_me(enota_dict):
     elif data == "2":
         start_tests(dict_ita, slo2ita=False)
     elif data == "s":
-        print(f"numero di istanze di Item: {len(dict_slo)}")
+        print(f"numero di istanze di Item: {len(Item._all_instances)}")
         # how many questions are there?
         questions = Item.get_all_questions()
 
