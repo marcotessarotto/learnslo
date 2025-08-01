@@ -289,7 +289,7 @@ class Item:
         # Register this instance for class-level tracking
         Item._all_instances.append(self)
 
-        print(self.question_groups)
+        # print(self.question_groups)
         for gp in self.question_groups:
             if gp.id not in Item._all_question_groups:
                 Item._all_question_groups[gp.id] = []
@@ -825,12 +825,12 @@ class LanguageQuiz:
 
             # Check answer and provide feedback
             if correct_answer == user_answer:
-                print("✓ Correct!")
+                print("✓ Corretto!")
                 self.correct_answers += 1
-                print(f"Answer: {correct_answer}")
+                print(f"Risposta: {correct_answer}")
             else:
-                print("✗ Incorrect")
-                print(f"Correct answer: {correct_answer}")
+                print("✗ Sbagliato")
+                print(f"Risposta corretta: {correct_answer}")
                 self.wrong_answers.append(correct_answer)
 
         # Display final results
@@ -854,7 +854,7 @@ class LanguageQuiz:
         """
         while True:
             try:
-                data = input("Answer (q to quit): ").strip().lower()
+                data = input("Risposta (q per uscire): ").strip().lower()
 
                 # Skip empty input
                 if not data:
@@ -869,11 +869,11 @@ class LanguageQuiz:
                     answer_pos = ord(data) - ord('a')
                     return possible_answers[answer_pos]
                 else:
-                    print("Invalid input. Please enter a valid option (a, b, c, etc.).")
+                    print("Input non valido. Per favore scegli un input valido (a, b, c, etc.).")
 
             except (EOFError, KeyboardInterrupt):
                 # Handle Ctrl+C or EOF gracefully
-                print("\nQuiz interrupted by user.")
+                print("\nQuiz interrotto dall'utente.")
                 return None
 
     def _display_results(self) -> Dict[str, Union[int, float]]:
@@ -889,24 +889,24 @@ class LanguageQuiz:
             Dictionary with numerical results for programmatic use
         """
         print("\n" + "=" * 50)
-        print("QUIZ COMPLETED!")
+        print("QUIZ COMPLETD!")
         print("=" * 50)
 
         if self.number_of_questions > 0:
             # Calculate and display performance metrics
             ratio = (self.correct_answers / self.number_of_questions) * 100
-            print(f"Questions answered: {self.number_of_questions}")
-            print(f"Correct answers: {self.correct_answers}")
-            print(f"Score: {ratio:.1f}%")
+            print(f"Numero di quiz: {self.number_of_questions}")
+            print(f"Risposte corrette: {self.correct_answers}")
+            print(f"Punteggio: {ratio:.1f}%")
 
             # Show incorrect answers for review
             if self.wrong_answers:
-                print(f"\nIncorrect answers ({len(self.wrong_answers)}):")
+                print(f"\nRisposte sbagliate ({len(self.wrong_answers)}):")
                 for answer in self.wrong_answers:
                     print(f"  • {answer}")
         else:
             ratio = 0
-            print("No questions were answered.")
+            print("Nessuna risposta è stata data.")
 
         return {
             "total_questions": self.number_of_questions,
@@ -975,11 +975,16 @@ def prepare_list_of_questions_and_answers(
 def generic_run_me(enota_dict):
     dict_slo, dict_ita = process_dictionary(enota_dict)
 
-    # print(Item._all_question_groups)
-    for k,v in Item._all_question_groups.items():
-        print(f"{k}: {v}")
-        print(f"len: {len(v)}")
+    if Item._all_question_groups:
+        print()
+        print(f"Gruppi di domande (numero totale quiz: {len(Item._all_instances)}):")
+        # print(Item._all_question_groups)
+        for k,v in Item._all_question_groups.items():
+            # print(f"{k}: {v}")
+            # print(f"len: {len(v)}")
+            print(f"'{k}': {len(v)} quiz")
 
+        print()
     print(f"slo items: {len(dict_slo)}")
     print(f"ita items: {len(dict_ita)}")
     print()
