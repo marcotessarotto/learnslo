@@ -289,7 +289,7 @@ class Item:
         # Register this instance for class-level tracking
         Item._all_instances.append(self)
 
-        # print(self.question_groups)
+        print(self.question_groups)
         for gp in self.question_groups:
             if gp.id not in Item._all_question_groups:
                 Item._all_question_groups[gp.id] = []
@@ -588,34 +588,51 @@ def find_random_answers(
     while len(answers) < number_of_answers and attempts < max_attempts:
         attempts += 1
 
+        random_answer = None
+
         try:
-            # Select random question and random answer for that question
-            random_key = random.choice(available_keys)
-            random_answer = random.choice(dict_lang[random_key])
 
-            # find other questions
-            if current_answer.is_question:
-                if not random_answer.is_question and attempts < max_attempts/5:
+            if current_answer.question_groups and attempts*2 < max_attempts:
+                # try to choose other (wrong) answers from the same question group(s) to which the correct answer belongs
+
+                qg = random.choice(current_answer.question_groups)
+
+                # for qg in current_answer.question_groups:
+                question_group = qg.id
+
+                random_answer = random.choice(Item._all_question_groups[question_group])
+                if random_answer.id == current_answer.id:
                     continue
 
-            if current_answer.ends_with_ite:
-                if not random_answer.ends_with_ite and attempts < max_attempts/3:
-                    continue
+            else:
 
-            # find other non questions
-            if not current_answer.is_question:
-                if random_answer.is_question and attempts < max_attempts/5:
-                    continue
+                # Select random question and random answer for that question
+                random_key = random.choice(available_keys)
+                random_answer = random.choice(dict_lang[random_key])
 
-            # Ensure structural similarity (word count matching)
-            # This makes single-word questions have single-word wrong answers
-            if not current_answer.is_question:
-                if not slo2ita:
-                    if random_answer.slo_multiple_words != current_answer.slo_multiple_words and attempts < max_attempts/5:
+                # find other questions
+                if current_answer.is_question:
+                    if not random_answer.is_question and attempts < max_attempts/5:
                         continue
-                else:
-                    if random_answer.ita_multiple_words != current_answer.ita_multiple_words and attempts < max_attempts/5:
+
+                if current_answer.ends_with_ite:
+                    if not random_answer.ends_with_ite and attempts < max_attempts/3:
                         continue
+
+                # find other non questions
+                if not current_answer.is_question:
+                    if random_answer.is_question and attempts < max_attempts/5:
+                        continue
+
+                # Ensure structural similarity (word count matching)
+                # This makes single-word questions have single-word wrong answers
+                if not current_answer.is_question:
+                    if not slo2ita:
+                        if random_answer.slo_multiple_words != current_answer.slo_multiple_words and attempts < max_attempts/5:
+                            continue
+                    else:
+                        if random_answer.ita_multiple_words != current_answer.ita_multiple_words and attempts < max_attempts/5:
+                            continue
 
             # Skip if this answer is already selected
             if random_answer in answers:
