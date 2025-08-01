@@ -808,7 +808,7 @@ class LanguageQuiz:
             if slo2ita:
                 print(f"Cosa significa '{current_question}' ?")
             else:
-                print(f"Cosa significa '{current_question}' ?")
+                print(f"Come traduci '{current_question}' ?")
 
             # Display multiple choice options
             for counter, answer in enumerate(possible_answers):
