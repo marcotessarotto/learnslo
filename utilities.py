@@ -216,6 +216,14 @@ class Item:
         >>> print(item.is_question)  # False
         >>> print(item.slo_multiple_words)  # True (2 words)
     """
+    # Class variables for tracking and organizing items
+    _next_id = 1
+    _all_instances = []
+    _all_question_groups = {}
+
+
+    # Unique identifier (not passed to constructor, assigned automatically)
+    id: int = field(init=False)
 
     # Core translation data
     slovensko: Optional[str] = None
@@ -242,7 +250,7 @@ class Item:
     italiansko_num_words: int = field(init=False, default=0)
     ends_with_ite: bool = field(init=False, default=False)
 
-    question_groups: Optional[list] = field(init=False, default_factory=list)
+    question_groups: Optional[list] = field(init=True, default_factory=list)
 
     def __post_init__(self):
         """
@@ -257,6 +265,10 @@ class Item:
         The computed features are used for quiz logic, difficulty assessment,
         and appropriate answer matching.
         """
+        # Assign the next available ID and increment the counter
+        self.id = Item._next_id
+        Item._next_id += 1
+
         # Process Slovenian text
         if self.slovensko:
             self.slovensko = self.slovensko.lower()
@@ -276,6 +288,12 @@ class Item:
 
         # Register this instance for class-level tracking
         Item._all_instances.append(self)
+
+        # print(self.question_groups)
+        for gp in self.question_groups:
+            if gp.id not in Item._all_question_groups:
+                Item._all_question_groups[gp.id] = []
+            Item._all_question_groups[gp.id].append(self)
 
     @classmethod
     def get_all_questions(cls) -> List['Item']:
@@ -376,8 +394,6 @@ class Item:
 
         return result
 
-# Initialize the class variable after the class definition
-Item._all_instances = []
 
 # =============================================================================
 # DICTIONARY PROCESSING FUNCTIONS  
@@ -941,6 +957,15 @@ def prepare_list_of_questions_and_answers(
 
 def generic_run_me(enota_dict):
     dict_slo, dict_ita = process_dictionary(enota_dict)
+
+    # print(Item._all_question_groups)
+    for k,v in Item._all_question_groups.items():
+        print(f"{k}: {v}")
+        print(f"len: {len(v)}")
+
+    print(f"slo items: {len(dict_slo)}")
+    print(f"ita items: {len(dict_ita)}")
+    print()
 
     print("1 - test da sloveno a italiano")
     print("2 - test da italiano a sloveno")
